@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -17,10 +18,7 @@
       padding: 10px;
       border: 1px solid #ccc;
     }
-    .question p {
-      margin: 0 0 8px 0;
-      font-weight: bold;
-    }
+    .question p { margin: 0 0 8px 0; font-weight: bold; }
     label {
       display: inline-block;
       margin: 4px 0;
@@ -34,8 +32,8 @@
       cursor: pointer;
     }
     /* ÕIGE/VALE märgistuse klassid */
-    .correct { background-color: #c8f7c5; }   /* heleroheline */
-    .incorrect { background-color: #f7c5c5; } /* helepunane */
+    .correct  { background-color: #c8f7c5; }   /* heleroheline */
+    .incorrect{ background-color: #f7c5c5; }   /* helepunane */
 
     #result { font-weight: bold; margin-top: 12px; }
   </style>
@@ -43,7 +41,7 @@
 <body>
 
   <h1>EVKI harjutustest</h1>
-  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või tee uue komplekti jaoks „Tee uus test”.</p>
+  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või uue testi jaoks vajuta „Tee uus test”.</p>
 
   <div id="quiz"></div>
 
@@ -52,7 +50,7 @@
 
   <p id="result"></p>
 
-  <!-- NB! Skriptile pole vaja lisateksti. Sulge tag korrektselt. -->
+  <!-- Pane script.js samasse kausta. Tag sulg korrektselt. -->
   script.js</script>
 </body>
 </html>
