@@ -1,32 +1,83 @@
+// Väike abiteade, et näed kas skript üldse laeb
+console.log('EVKI app: script.js laaditud');
+
 let allQuestions = [];
 let quizQuestions = [];
 
-// Lae questions.json samast kaustast
-fetch('questions.json')
-  .then(async (response) => {
-    const text = await response.text();
-    try {
-      const data = JSON.parse(text);
-      allQuestions = data;
-      startQuiz();
-    } catch (e) {
-      console.error('JSON parse error:', e);
-      document.getElementById('quiz').innerHTML =
-        '<p style="color:red">Viga: questions.json ei saa parsida.</p>';
+// Initsialiseeri kui DOM on valmis
+window.addEventListener('DOMContentLoaded', init);
+
+async function init() {
+  console.log('EVKI app: DOM valmis');
+  // Lisa nupuvajutused JS-ist (väldime onclick attri)
+  const checkBtn = document.getElementById('checkBtn');
+  const newBtn   = document.getElementById('newBtn');
+
+  if (checkBtn) checkBtn.addEventListener('click', submitQuiz);
+  if (newBtn)   newBtn.addEventListener('click', newTest);
+
+  // Lae küsimused ja alusta
+  await loadQuestions();
+  startQuiz();
+}
+
+async function loadQuestions() {
+  const errEl = document.getElementById('error');
+  if (errEl) errEl.textContent = '';
+  try {
+    // Cache-busting, et GitHub Pages ei annaks vana faili
+    const res = await fetch('./questions.json?v=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+    const data = JSON.parse(text); // annab vea kui JSON on katki
+    if (!Array.isArray(data) || data.length === 0) {
+      throw new Error('Tyhi või vale formaadis JSON');
     }
-  })
-  .catch(err => {
-    console.error('Fetch error:', err);
-    document.getElementById('quiz').innerHTML =
-      '<p style="color:red">Viga: questions.json faili ei õnnestu laadida.</p>';
-  });
+    allQuestions = data;
+    console.log('EVKI app: questions.json laaditud, kirjeid:', data.length);
+  } catch (e) {
+    console.warn('EVKI app: JSON load/parse error:', e);
+    if (errEl) errEl.textContent = 'Hoiatus: questions.json ei laadinud. Kasutan näidisküsimusi.';
+    // Fallback – et leht kindlasti toimiks (3 näidisküsimust)
+    allQuestions = [
+      {
+        question: 'Mis on ettevõtluskeskkond?',
+        options: [
+          'Ainult ettevõtte sisekeskkond',
+          'Ettevõtet ümbritsev sise- ja välistegurite kogum',
+          'Ainult makrokeskkond',
+          'Ainult seadusandlus'
+        ],
+        correct: 1
+      },
+      {
+        question: 'Mis on PESTLE analüüs?',
+        options: [
+          'Finantsanalüüs',
+          'Turundusanalüüs',
+          'Makrokeskkonna analüüs',
+          'Konkurentsianalüüs'
+        ],
+        correct: 2
+      },
+      {
+        question: 'Millisteks keskkondadeks jaguneb ettevõtluskeskkond?',
+        options: [
+          'Sisekeskkond ja väliskeskkond',
+          'Avalik ja erasektor',
+          'Kohalik ja globaalne',
+          'Tööstus ja teenused'
+        ],
+        correct: 0
+      }
+    ];
+    console.log('EVKI app: fallback-küsimused kasutusel');
+  }
+}
 
 function startQuiz() {
-  // vali juhuslikud 20 küsimust
   quizQuestions = shuffleArray(allQuestions).slice(0, 20);
   renderQuiz();
-
-  // tühjenda tulemus
   const resultEl = document.getElementById('result');
   if (resultEl) resultEl.textContent = '';
 }
@@ -87,16 +138,13 @@ function submitQuiz() {
     `Tulemus: ${score} / ${quizQuestions.length}`;
 }
 
-// Uus test – uus komplekt 20 küsimust
 function newTest() {
   startQuiz();
-  // Kerime üles, et uus test oleks kohe nähtav
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* Ühtlane segamine (Fisher–Yates) */
 function shuffleArray(arr) {
-  const a = [...arr];
+  const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
@@ -104,7 +152,6 @@ function shuffleArray(arr) {
   return a;
 }
 
-/* Väike HTML-escape ohutuks sisestuseks (kui tekstis on erimärgid) */
 function escapeHtml(str) {
   return String(str)
     .replaceAll('&', '&amp;')
@@ -113,7 +160,3 @@ function escapeHtml(str) {
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
 }
-
-/* Tee funktsioonid globaalseks, et onclick neid leiaks */
-window.submitQuiz = submitQuiz;
-window.newTest = newTest;
