@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -8,29 +9,58 @@
             font-family: Arial, sans-serif;
             max-width: 800px;
             margin: auto;
+            line-height: 1.5;
+            padding: 24px;
+        }
+        h1 {
+            margin-top: 0;
         }
         .question {
             margin-bottom: 20px;
             padding: 10px;
             border: 1px solid #ccc;
         }
+        .question p {
+            margin: 0 0 8px 0;
+            font-weight: bold;
+        }
+        label {
+            display: inline-block;
+            margin: 4px 0;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
         button {
             padding: 10px 20px;
             font-size: 16px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        /* --- ÕIGE/VALE märgistuse klassid --- */
+        .correct {
+            background-color: #c8f7c5; /* heleroheline */
+        }
+        .incorrect {
+            background-color: #f7c5c5; /* helepunane */
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 12px;
         }
     </style>
 </head>
 <body>
 
 <h1>EVKI harjutustest</h1>
-<p>Testis on 20 juhuslikku küsimust.</p>
+<p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või uue testi jaoks vajuta „Tee uus test”.</p>
 
 <div id="quiz"></div>
 
 <button onclick="submitQuiz()">Näita tulemust</button>
+<button onclick="newTest()">Tee uus test</button>
 
 <p id="result"></p>
 
-<script src="script.js"></script>
+script.js</script>
 </body>
 </html>
