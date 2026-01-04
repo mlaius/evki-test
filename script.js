@@ -1,7 +1,7 @@
 let allQuestions = [];
 let quizQuestions = [];
 
-// Lae JSON samast kaustast (vajadusel muuda tee: 'data/questions.json')
+// Lae questions.json samast kaustast
 fetch('questions.json')
   .then(async (response) => {
     const text = await response.text();
