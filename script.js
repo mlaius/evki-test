@@ -1,7 +1,7 @@
 let allQuestions = [];
 let quizQuestions = [];
 
-// Lae questions.json samast kaustast (vajadusel muuda tee: 'data/questions.json')
+// Lae JSON samast kaustast (vajadusel muuda tee: 'data/questions.json')
 fetch('questions.json')
   .then(async (response) => {
     const text = await response.text();
@@ -114,6 +114,6 @@ function escapeHtml(str) {
     .replaceAll("'", '&#39;');
 }
 
-/* Oluline: tee funktsioonid globaalseks, et onclick neid leiaks */
+/* Tee funktsioonid globaalseks, et onclick neid leiaks */
 window.submitQuiz = submitQuiz;
 window.newTest = newTest;
