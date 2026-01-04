@@ -1,64 +1,36 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-  <meta charset="UTF-8" />
-  <title>EVKI harjutustest</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px;
-      line-height: 1.5;
-    }
-    h1 { margin-top: 0; }
-    .question {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-    .question p {
-      margin: 0 0 8px 0;
-      font-weight: bold;
-    }
-    label {
-      display: inline-block;
-      margin: 4px 0;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-right: 8px;
-      cursor: pointer;
-    }
-    #actions {
-      margin: 12px 0;
-    }
-
-    /* Märgistused pärast kontrolli */
-    .correct { background-color: #c8f7c5; }   /* heleroheline */
-    .incorrect { background-color: #f7c5c5; } /* helepunane */
-
-    /* Tulemus */
-    #result { font-weight: bold; margin-top: 12px; }
-  </style>
+    <meta charset="UTF-8">
+    <title>EVKI harjutustest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>EVKI harjutustest</h1>
-  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”.</p>
+<h1>EVKI harjutustest</h1>
+<p>Testis on 20 juhuslikku küsimust.</p>
 
-  <div id="quiz"></div>
+<div id="quiz"></div>
 
-  <div id="actions">
-    <button id="checkBtn" onclick="submitQuiz()">Näita tulemust</button>
-    <button id="newBtn" onclick="newTest()">Tee uus test</button>
-  </div>
+<button onclick="submitQuiz()">Näita tulemust</button>
 
-  <p id="result"></p>
+<p id="result"></p>
 
-  script.js</script>
+<script src="script.js"></script>
 </body>
 </html>
