@@ -1,136 +1,136 @@
 [
   {
-    "question": "1. Mis on ettevõtluskeskkond?",
+    "question": "Mis on ettevõtluskeskkond?",
     "options": [
-      "Ettevõtluskeskkond on ettevõtet ümbritsev sise- ja välistegurite kogum, mis mõjutab ettevõtte eesmärkide seadmist ja saavutamist – sh mikrok…",
-      "Teise valdkonna raamistik, mitte antud teema",
+      "Ettevõtluskeskkond on ettevõtet ümbritsev sise- ja välistegurite kogum, mis mõjutab ettevõtte eesmärkide seadm…",
       "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
     "correct": 0
   },
   {
-    "question": "2. Millisteks keskkondadeks jaguneb ettevõtluskeskkond?",
+    "question": "Millisteks keskkondadeks jaguneb ettevõtluskeskkond?",
     "options": [
       "Sisekeskkond, väliskeskkond.",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "3. Kuidas jaguneb ettevõtte väliskeskkond?",
-    "options": [
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Mikrokeskkond (kliendid, partnerid, hankijad, kreeditorid, konkurendid, regulaatorid) ja makrokeskkond (PESTLE: poliitiline, majanduslik, so…"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "4. Kes kuuluvad ettevõtte mikrokeskkonda?",
-    "options": [
-      "Riigi fiskaalpoliitika elemendid",
-      "Makromajanduse trendide koond",
-      "Kliendid, koostööpartnerid, hankijad, kreeditorid, konkurendid, regulaatorid.",
-      "Ettevõtte osakondade sisemine jaotus"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "5. Kuidas jaguneb ettevõtte makrokeskkond?",
-    "options": [
-      "Turunduskampaaniate planeerimise meetod",
-      "Finantsaruandluse standardite võrdlus",
-      "PESTLE: poliitiline, majanduslik, sotsiaalne, tehnoloogiline, õiguslik, ökoloogiline.",
-      "Konkurentsijõudude analüüs (Porter)"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "6. Mis on PESTLE analüüs?",
-    "options": [
-      "Metoodika ettevõtte makrokeskkonna (poliitilised, majanduslikud, sotsiaalsed, tehnoloogilised, õiguslikud ja ökoloogilised) mõjurite süstema…",
-      "Konkurentsijõudude analüüs (Porter)",
-      "Turunduskampaaniate planeerimise meetod",
-      "Finantsaruandluse standardite võrdlus"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "7. Mida peamiselt analüüsitakse P, M, S, T, Õ, Ö keskkonnas?",
-    "options": [
-      "P: valitsus, poliitika, maksud, kaubanduspoliitika;",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 0
   },
   {
-    "question": "8. Makromajanduslike prognooside tegijad ja täpsus?",
+    "question": "Kuidas jaguneb ettevõtte väliskeskkond?",
     "options": [
-      "Eestis avaldavad prognoose eeskätt Eesti Pank, Rahandusministeerium, Konjunktuuriinstituut;",
-      "Teise valdkonna raamistik, mitte antud teema",
+      "Mikrokeskkond (kliendid, partnerid, hankijad, kreeditorid, konkurendid, regulaatorid) ja makrokeskkond (PESTLE…",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 0
   },
   {
-    "question": "9. Kuidas ettevõtted arvestavad prognoose?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Kasutavad stsenaariumipõhist planeerimist (optimistlik/baas/pessimistlik), hindavad nõudluse, hinna ja finantskulude (intress, valuuta) tund…"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "10. Mikrokeskkonna osaliste peamised huvid?",
-    "options": [
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Tarnijad: stabiilne nõudlus ja maksed;"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "11. Sisekeskkonna huvigrupid?",
+    "question": "Kes kuuluvad ettevõtte mikrokeskkonda?",
     "options": [
       "Ettevõtte osakondade sisemine jaotus",
-      "Makromajanduse trendide koond",
-      "Omanikud, juhtkond, töötajad ning muud ettevõttesisesed tegurid/struktuurid.",
-      "Riigi fiskaalpoliitika elemendid"
+      "Riigi fiskaalpoliitika elemendid",
+      "Kliendid, koostööpartnerid, hankijad, kreeditorid, konkurendid, regulaatorid.",
+      "Makromajanduse trendide koond"
     ],
     "correct": 2
   },
   {
-    "question": "12. Omanike huvid?",
+    "question": "Kuidas jaguneb ettevõtte makrokeskkond?",
     "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Rikkuse maksimeerimine (tulunorm, dividendid, väärtuse kasv), investeeringute tulu, kontrolli tase, riskide juhtimine, maksustamine."
+      "PESTLE: poliitiline, majanduslik, sotsiaalne, tehnoloogiline, õiguslik, ökoloogiline.",
+      "Finantsaruandluse standardite võrdlus",
+      "Turunduskampaaniate planeerimise meetod",
+      "Konkurentsijõudude analüüs (Porter)"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on PESTLE analüüs?",
+    "options": [
+      "Konkurentsijõudude analüüs (Porter)",
+      "Finantsaruandluse standardite võrdlus",
+      "Turunduskampaaniate planeerimise meetod",
+      "Metoodika ettevõtte makrokeskkonna (poliitilised, majanduslikud, sotsiaalsed, tehnoloogilised, õiguslikud ja ö…"
     ],
     "correct": 3
   },
   {
-    "question": "13. Juhtkonna huvid?",
+    "question": "Mida peamiselt analüüsitakse P, M, S, T, Õ, Ö keskkonnas?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "P: valitsus, poliitika, maksud, kaubanduspoliitika;",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Makromajanduslike prognooside tegijad ja täpsus?",
     "options": [
       "Teise valdkonna raamistik, mitte antud teema",
       "Üldine turundustaktika, mitte see mõiste",
+      "Eestis avaldavad prognoose eeskätt Eesti Pank, Rahandusministeerium, Konjunktuuriinstituut;",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kuidas ettevõtted arvestavad prognoose?",
+    "options": [
+      "Üldine turundustaktika, mitte see mõiste",
+      "Kasutavad stsenaariumipõhist planeerimist (optimistlik/baas/pessimistlik), hindavad nõudluse, hinna ja finants…",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mikrokeskkonna osaliste peamised huvid?",
+    "options": [
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Maine ja saavutused, otsustusvabadus, tasu, karjäär ja mõju;"
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Tarnijad: stabiilne nõudlus ja maksed;",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Sisekeskkonna huvigrupid?",
+    "options": [
+      "Riigi fiskaalpoliitika elemendid",
+      "Makromajanduse trendide koond",
+      "Ettevõtte osakondade sisemine jaotus",
+      "Omanikud, juhtkond, töötajad ning muud ettevõttesisesed tegurid/struktuurid."
     ],
     "correct": 3
   },
   {
-    "question": "14. Töötajate huvid?",
+    "question": "Omanike huvid?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Rikkuse maksimeerimine (tulunorm, dividendid, väärtuse kasv), investeeringute tulu, kontrolli tase, riskide ju…",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Juhtkonna huvid?",
+    "options": [
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Maine ja saavutused, otsustusvabadus, tasu, karjäär ja mõju;",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Töötajate huvid?",
     "options": [
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
@@ -140,82 +140,82 @@
     "correct": 2
   },
   {
-    "question": "15. Kui juhtkond pole omanike ringis – mis probleemid?",
+    "question": "Kui juhtkond pole omanike ringis – mis probleemid?",
     "options": [
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Tekivad agentuuririskid: eesmärkide lahknevus, ülemäärane riskimine või riskikartlikkus, info asümmeetria, stiimulite väärhäälestus;"
+      "Tekivad agentuuririskid: eesmärkide lahknevus, ülemäärane riskimine või riskikartlikkus, info asümmeetria, sti…",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
-    "correct": 3
+    "correct": 1
   },
   {
-    "question": "16. Mis on SWOT analüüs?",
+    "question": "Mis on SWOT analüüs?",
     "options": [
-      "Süsteem ettevõtte sise■ (Tugevused, Nõrkused) ja välistegurite (Võimalused, Ohud) süstematiseerimiseks ning strateegiliste valikute raamista…",
       "Eelarveprognoosi koostamise raamistik",
-      "Protsessiskeemi koostamise meetod",
-      "Turusegmentide määramise tehnika"
+      "Süsteem ettevõtte sise■ (Tugevused, Nõrkused) ja välistegurite (Võimalused, Ohud) süstematiseerimiseks ning st…",
+      "Turusegmentide määramise tehnika",
+      "Protsessiskeemi koostamise meetod"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
-    "question": "17. Kuidas SWOT seostub PESTLE’iga?",
+    "question": "Kuidas SWOT seostub PESTLE’iga?",
     "options": [
-      "Finantsaruandluse standardite võrdlus",
-      "PESTLE kaardistab makrotegurid;",
       "Konkurentsijõudude analüüs (Porter)",
+      "PESTLE kaardistab makrotegurid;",
+      "Finantsaruandluse standardite võrdlus",
       "Turunduskampaaniate planeerimise meetod"
     ],
     "correct": 1
   },
   {
-    "question": "18. SWOT sisemised vs välised tegurid?",
+    "question": "SWOT sisemised vs välised tegurid?",
     "options": [
-      "Protsessiskeemi koostamise meetod",
       "Turusegmentide määramise tehnika",
-      "Eelarveprognoosi koostamise raamistik",
-      "Sisemised: ressursid, oskused, protsessid (Tugevused/Nõrkused)."
+      "Sisemised: ressursid, oskused, protsessid (Tugevused/Nõrkused).",
+      "Protsessiskeemi koostamise meetod",
+      "Eelarveprognoosi koostamise raamistik"
     ],
-    "correct": 3
+    "correct": 1
   },
   {
     "question": "Näited SWOT elementidest?",
     "options": [
-      "Tugevused: kompetentne personal, unikaalne toode, hea bränd;",
       "Protsessiskeemi koostamise meetod",
-      "Eelarveprognoosi koostamise raamistik",
-      "Turusegmentide määramise tehnika"
+      "Turusegmentide määramise tehnika",
+      "Tugevused: kompetentne personal, unikaalne toode, hea bränd;",
+      "Eelarveprognoosi koostamise raamistik"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
-    "question": "20. Mis on ettevõtluse tugisüsteem?",
-    "options": [
-      "Teenuste ja institutsioonide võrgustik, mis toetab ettevõtete loomist, kasvu ja rahvusvahelistumist (nõustamine, koolitus, rahastus, kvalite…",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "21. Tugisüsteemi eesmärk Eestis?",
+    "question": "Mis on ettevõtluse tugisüsteem?",
     "options": [
       "Üldine turundustaktika, mitte see mõiste",
       "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Suurendada ettevõtete TAI■mahukust, lisandväärtust ja eksporti kõigis piirkondades;"
+      "Teenuste ja institutsioonide võrgustik, mis toetab ettevõtete loomist, kasvu ja rahvusvahelistumist (nõustamin…"
     ],
     "correct": 3
   },
   {
-    "question": "22. Peamised riiklikud toetuste institutsioonid?",
+    "question": "Tugisüsteemi eesmärk Eestis?",
+    "options": [
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Suurendada ettevõtete TAI■mahukust, lisandväärtust ja eksporti kõigis piirkondades;",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Peamised riiklikud toetuste institutsioonid?",
     "options": [
       "Üldine turundustaktika, mitte see mõiste",
-      "Ettevõtluse Arendamise Sihtasutus/KredEx (EAS/KredEx), Eesti Teadusagentuur (ETAg), ministeeriumid (HTM, MKM jt), maakondlikud arenduskeskus…",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Ettevõtluse Arendamise Sihtasutus/KredEx (EAS/KredEx), Eesti Teadusagentuur (ETAg), ministeeriumid (HTM, MKM j…",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 1
   },
@@ -223,161 +223,161 @@
     "question": "Majanduse areng ja eeldused?",
     "options": [
       "Teise valdkonna raamistik, mitte antud teema",
-      "Tootlikkuse kasv läbi innovatsiooni ja investeeringute;",
       "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
-    ],
-    "correct": 1
-  },
-  {
-    "question": "Eesti majanduse tugevused, nõrkused, väljakutsed?",
-    "options": [
-      "Tugevused: digiühiskond, paindlikkus, idusektori edu;",
-      "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "25. Miks tähtsad eksport ja VOI?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Väikese turu korral on kasvuks vaja eksporti;"
+      "Tootlikkuse kasv läbi innovatsiooni ja investeeringute;"
     ],
     "correct": 3
   },
   {
+    "question": "Eesti majanduse tugevused, nõrkused, väljakutsed?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Tugevused: digiühiskond, paindlikkus, idusektori edu;",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks tähtsad eksport ja VOI?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Väikese turu korral on kasvuks vaja eksporti;",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 2
+  },
+  {
     "question": "Lisandväärtuse olemus ja tähtsus?",
     "options": [
-      "Lisandväärtus on müügitulu miinus vahetarbimine;",
       "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Lisandväärtus on müügitulu miinus vahetarbimine;",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "question": "Ettevõtte koha muutumine väärtusahelas?",
     "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
       "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Liikumine allhankest brändi ja R&D;■ga lõpp■toote/teenuse pakkujaks;",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 2
   },
   {
     "question": "Kohalik ettevõtluskeskkond ja ootused?",
     "options": [
+      "Taristu (energia, transport), kättesaadav tööjõud ja koolitus, kiire haldus, koostöövõrgustikud, stabiilne ruu…",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Taristu (energia, transport), kättesaadav tööjõud ja koolitus, kiire haldus, koostöövõrgustikud, stabiilne ruumiline planeering ja ruumipime…"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Ettevõtluse hindamine ja toetamine KOVis?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "KOV saab pakkuda ärikeskkonna teenuseid (planeering, taristu), inkubatsiooni, koostööd koolidega, kohalikke toetusi ning andmepõhist järelhi…",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "Regionaalse innovatsioonisüsteemi ja konkurentsivõime mudel?",
-    "options": [
-      "RIS ühendab ettevõtted, teadus■/haridusasutused, arenduskeskused, avaliku sektori ja finantsvahendajad, et soodustada teadmussiiret ja DUI■i…",
-      "Raamatupidamise konsolideerimise protsess",
-      "Valitsemise audit ja järelevalve",
-      "Töökorralduse standardiseerimine"
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 0
   },
   {
+    "question": "Ettevõtluse hindamine ja toetamine KOVis?",
+    "options": [
+      "Teise valdkonna raamistik, mitte antud teema",
+      "KOV saab pakkuda ärikeskkonna teenuseid (planeering, taristu), inkubatsiooni, koostööd koolidega, kohalikke to…",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Regionaalse innovatsioonisüsteemi ja konkurentsivõime mudel?",
+    "options": [
+      "Raamatupidamise konsolideerimise protsess",
+      "RIS ühendab ettevõtted, teadus■/haridusasutused, arenduskeskused, avaliku sektori ja finantsvahendajad, et soo…",
+      "Valitsemise audit ja järelevalve",
+      "Töökorralduse standardiseerimine"
+    ],
+    "correct": 1
+  },
+  {
     "question": "Välisturunduse strateegia osad?",
     "options": [
-      "Sihtturu valik ja segmentimine, väärtuspakkumine ja positsioneerimine, kanalid ja partnerlus, sertifikaadid ja regulatiivne vastavus, hinnas…",
+      "Sihtturu valik ja segmentimine, väärtuspakkumine ja positsioneerimine, kanalid ja partnerlus, sertifikaadid ja…",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 0
   },
   {
     "question": "Turu konkurentsianalüüs osad?",
     "options": [
-      "Tööstusharu struktuur (konkurentsi tase), asendustooted, sisenemisbarjäärid, ostjate/tarnijate jõud, regulaatorid;",
-      "Üldine turundustaktika, mitte see mõiste",
       "Teise valdkonna raamistik, mitte antud teema",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Tööstusharu struktuur (konkurentsi tase), asendustooted, sisenemisbarjäärid, ostjate/tarnijate jõud, regulaato…",
       "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "question": "Innovatsiooni mõiste, eesmärgid ja liigid?",
     "options": [
       "Töökorralduse standardiseerimine",
+      "Raamatupidamise konsolideerimise protsess",
       "Valitsemise audit ja järelevalve",
-      "Uute ideede rakendamine väärtuse loomiseks.",
-      "Raamatupidamise konsolideerimise protsess"
+      "Uute ideede rakendamine väärtuse loomiseks."
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "question": "Innovatsiooniprotsess kui konkurentsivõime?",
     "options": [
       "Valitsemise audit ja järelevalve",
-      "Töökorralduse standardiseerimine",
-      "Innovatsioon tõstab lisandväärtust ja võimaldab astuda väärtusahelas üles – eriti DUI■mudelis, kus koostöö ja katsetamine on keskne.",
-      "Raamatupidamise konsolideerimise protsess"
+      "Innovatsioon tõstab lisandväärtust ja võimaldab astuda väärtusahelas üles - eriti DUI■mudelis, kus koostöö ja…",
+      "Raamatupidamise konsolideerimise protsess",
+      "Töökorralduse standardiseerimine"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "question": "Leiutis vs innovatsioon?",
     "options": [
+      "Valitsemise audit ja järelevalve",
       "Töökorralduse standardiseerimine",
       "Raamatupidamise konsolideerimise protsess",
-      "Leiutis = uus idee/avastus;",
-      "Valitsemise audit ja järelevalve"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "Eristumine ettevõtluses?",
-    "options": [
-      "Konkurentsieeliste loomine (disain, kvaliteet, kiirus, teenus, bränd), mis lubab küsida kõrgemat hinda või võita turuosa.",
-      "Töökorralduse standardiseerimine",
-      "Valitsemise audit ja järelevalve",
-      "Raamatupidamise konsolideerimise protsess"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "Juhtimise põhimõtted rahvusvahelises konkurentsis?",
-    "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Strateegiline fokusseerimine, kvaliteedijuhtimine, digitaliseerimine ja andmepõhisus, oskuslik rahvusvaheline turundus, talentide juhtimine."
+      "Leiutis = uus idee/avastus;"
     ],
     "correct": 3
   },
   {
+    "question": "Eristumine ettevõtluses?",
+    "options": [
+      "Töökorralduse standardiseerimine",
+      "Valitsemise audit ja järelevalve",
+      "Raamatupidamise konsolideerimise protsess",
+      "Konkurentsieeliste loomine (disain, kvaliteet, kiirus, teenus, bränd), mis lubab küsida kõrgemat hinda või või…"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Juhtimise põhimõtted rahvusvahelises konkurentsis?",
+    "options": [
+      "Üldine turundustaktika, mitte see mõiste",
+      "Strateegiline fokusseerimine, kvaliteedijuhtimine, digitaliseerimine ja andmepõhisus, oskuslik rahvusvaheline…",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 1
+  },
+  {
     "question": "Peamised turutõrked, mida riik leevendab?",
     "options": [
-      "Avalike hüvede alarahastatus, välismõjud (posit./neg.), informatsiooni asümmeetria, turujõu kuritarvitus, koordineerimise ebaõnnestumised, p…",
-      "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Üldine turundustaktika, mitte see mõiste",
+      "Avalike hüvede alarahastatus, välismõjud (posit./neg.), informatsiooni asümmeetria, turujõu kuritarvitus, koor…",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "question": "Adam Smithi „nähtamatu käsi“ ja tööjaotus?",
@@ -392,9 +392,9 @@
   {
     "question": "Smith vs Keynes riigi rollis?",
     "options": [
-      "Üldine turundustaktika, mitte see mõiste",
-      "Smith: riigi minimaalne sekkumine, turg koordineerib.",
       "Teise valdkonna raamistik, mitte antud teema",
+      "Smith: riigi minimaalne sekkumine, turg koordineerib.",
+      "Üldine turundustaktika, mitte see mõiste",
       "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
     "correct": 1
@@ -403,46 +403,26 @@
     "question": "„Lemon market“ (Akerlof 1970) ja infotõrge?",
     "options": [
       "Üldine turundustaktika, mitte see mõiste",
-      "Turg, kus kvaliteeti on raske hinnata, viib info asümmeetria tõttu häid tooteid turult välja (vastupidine valik).",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Turg, kus kvaliteeti on raske hinnata, viib info asümmeetria tõttu häid tooteid turult välja (vastupidine vali…"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "question": "Eraomandi kaitse ja ettevõtlusvabadus (Locke)?",
     "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Locke’i teoorias tagab eraomandi kaitse stiimuli tööks ja investeeringuteks;",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Locke’i teoorias tagab eraomandi kaitse stiimuli tööks ja investeeringuteks;"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "question": "Reguleeriv turumajandusriik vs turumajanduslik arendusriik?",
     "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Reguleeriv: seab reeglid ja tagab konkurentsi."
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Arendusriigi tunnused (Dicken)?",
-    "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Strateegiline tööstuspoliitika, sihipärased investeerimisprogrammid, eksporttoetus, T&A;"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "45. Miks hoida lahus bürokraatia ja poliitiline juhtimine?",
-    "options": [
-      "Vähendab klientelismi ja tagab professionaalse, järjepideva poliitikate elluviimise;",
+      "Reguleeriv: seab reeglid ja tagab konkurentsi.",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
       "Üldine turundustaktika, mitte see mõiste"
@@ -450,70 +430,90 @@
     "correct": 0
   },
   {
+    "question": "Arendusriigi tunnused (Dicken)?",
+    "options": [
+      "Strateegiline tööstuspoliitika, sihipärased investeerimisprogrammid, eksporttoetus, T&A;",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks hoida lahus bürokraatia ja poliitiline juhtimine?",
+    "options": [
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Vähendab klientelismi ja tagab professionaalse, järjepideva poliitikate elluviimise;"
+    ],
+    "correct": 3
+  },
+  {
     "question": "Näited arendusriigi poliitikatest?",
     "options": [
-      "IPCEI/projektitoetus, maksusoodustused, taristu ja „pehme maandumine“ VOI jaoks, innovatiivsed riigihanked, klastrid, DIH■id, ekspordigarant…",
-      "Teise valdkonna raamistik, mitte antud teema",
+      "IPCEI/projektitoetus, maksusoodustused, taristu ja „pehme maandumine“ VOI jaoks, innovatiivsed riigihanked, kl…",
       "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 0
   },
   {
     "question": "Ühishuvid, mis seovad riike ja ettevõtteid?",
     "options": [
-      "Töökohti ja maksutulu loov majanduskasv, tehnoloogia arendamine, tarneahelate kindlus, regionaalne heaolu ja julgeolek.",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Üldine turundustaktika, mitte see mõiste",
+      "Töökohti ja maksutulu loov majanduskasv, tehnoloogia arendamine, tarneahelate kindlus, regionaalne heaolu ja j…"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "question": "Rahvusvaheline tootmisvõrgustik?",
     "options": [
-      "Üle piiride integreeritud tarneahelad ja tütarettevõtted/partnerid, kus väärtus luuakse mitmes riigis koordineeritult.",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "49. Miks rahvusvahelistutakse (turg vs varad)?",
-    "options": [
       "Üldine turundustaktika, mitte see mõiste",
-      "Turule suunatud: ligipääs uutele turgudele, kliendilähedus.",
+      "Üle piiride integreeritud tarneahelad ja tütarettevõtted/partnerid, kus väärtus luuakse mitmes riigis koordine…",
       "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
     "correct": 1
   },
   {
-    "question": "VOI vs portfelliinvesteering?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "VOI = kontroll ja püsiv kohalolek (reainvesteering, tütar)."
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Riigid vs rahvusvahelised ettevõtted – läbirääkimisloogika?",
+    "question": "Miks rahvusvahelistutakse (turg vs varad)?",
     "options": [
       "Üldine turundustaktika, mitte see mõiste",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Vahetus: maksusoodustused, taristu, tööjõu ettevalmistus vs töökohad, T&A;, eksport, maksutulu;",
+      "Turule suunatud: ligipääs uutele turgudele, kliendilähedus.",
       "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
     "correct": 2
   },
   {
-    "question": "Tollid ja mittetariifsed piirangud – mõju?",
+    "question": "VOI vs portfelliinvesteering?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "VOI = kontroll ja püsiv kohalolek (reainvesteering, tütar).",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Riigid vs rahvusvahelised ettevõtted – läbirääkimisloogika?",
     "options": [
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Vahetus: maksusoodustused, taristu, tööjõu ettevalmistus vs töökohad, T&A;, eksport, maksutulu;"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Tollid ja mittetariifsed piirangud – mõju?",
+    "options": [
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
       "Võivad kaitsta kodumaist tootmist (import kallim), ent risk on konkurentsi langus ja vastumeetmed;"
     ],
@@ -522,19 +522,19 @@
   {
     "question": "Ettevõtlikkuse definitsioon (Shapero & Vesper)?",
     "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Ettevõtlikkus on kavatsuslik tegevus võimaluste ärakasutamiseks uue väärtuse loomiseks;",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Üldine turundustaktika, mitte see mõiste",
+      "Ettevõtlikkus on kavatsuslik tegevus võimaluste ärakasutamiseks uue väärtuse loomiseks;",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
-    "question": "54. Miks väikeettevõtlus on vajalik?",
+    "question": "Miks väikeettevõtlus on vajalik?",
     "options": [
-      "Üldine turundustaktika, mitte see mõiste",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
+      "Üldine turundustaktika, mitte see mõiste",
       "Loojad tööhõivet ja paindlikkust, aitavad hajutada šokke, loovad nišš■innovatsiooni ja regionaalset arengut."
     ],
     "correct": 3
@@ -542,37 +542,57 @@
   {
     "question": "Riigi võimalused ettevõtluse aktiviseerimiseks?",
     "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
-      "Nõustamine ja koolitused, rahastusinstrumendid (laen, grant, garantiid), maksusoodustused, innovatsioonihanked, eksporditugi, klastrid, digi…"
+      "Nõustamine ja koolitused, rahastusinstrumendid (laen, grant, garantiid), maksusoodustused, innovatsioonihanked…"
     ],
     "correct": 3
   },
   {
     "question": "Ettevõtlusaktiivsuse kasvu tegurid?",
     "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Institutsioonide kvaliteet ja stabiilsus, kapitali kättesaadavus, inimkapital/oskused, turuvõimalused, võrgustikud ja eeskujude nähtavus.",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Institutsioonide kvaliteet ja stabiilsus, kapitali kättesaadavus, inimkapital/oskused, turuvõimalused, võrgust…"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "question": "Ettevõtlusmiljöö mõiste?",
     "options": [
       "Teise valdkonna raamistik, mitte antud teema",
-      "Kohalik institutsionaalne, sotsiaalne ja ruumiline keskkond (reeglid, kultuur, võrgustikud, taristu), mis kujundab ettevõtlusaktiivsust ja k…",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Üldine turundustaktika, mitte see mõiste",
+      "Kohalik institutsionaalne, sotsiaalne ja ruumiline keskkond (reeglid, kultuur, võrgustikud, taristu), mis kuju…"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "question": "Kondratjevi lained ja tehnoloogiad?",
     "options": [
-      "Pikaajalised (40–60 a) majandustsüklid, mida seostatakse tehnoloogiliste läbimurdetega (aurumasin, raudtee, elekter/keemia, autotööstus, IKT…",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Pikaajalised (40-60 a) majandustsüklid, mida seostatakse tehnoloogiliste läbimurdetega (aurumasin, raudtee, el…",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Toote elutsükli teooria?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Tooted läbivad faasid: juurutus, kasv, küpsus, langus;",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Klastrite põhijooned (Porter)?",
+    "options": [
+      "Geograafiliselt lähestikku ettevõtete, tarnijate, teenusepakkujate ja institutsioonide kogum, mis suurendab to…",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
       "Teise valdkonna raamistik, mitte antud teema"
@@ -580,172 +600,152 @@
     "correct": 0
   },
   {
-    "question": "Toote elutsükli teooria?",
+    "question": "Porteri rombi neli komponenti?",
     "options": [
-      "Tooted läbivad faasid: juurutus, kasv, küpsus, langus;",
-      "Teise valdkonna raamistik, mitte antud teema",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "Klastrite põhijooned (Porter)?",
-    "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
       "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Geograafiliselt lähestikku ettevõtete, tarnijate, teenusepakkujate ja institutsioonide kogum, mis suurendab tootlikkust, innovatsiooni ja uu…"
+      "Teise valdkonna raamistik, mitte antud teema",
+      "(1) Tootmisfaktorid (oskused, taristu), (2) Nõudluse tingimused, (3) Sarnaste ja toetavate tööstuste olemasolu…"
     ],
     "correct": 3
   },
   {
-    "question": "Porteri rombi neli komponenti?",
-    "options": [
-      "(1) Tootmisfaktorid (oskused, taristu), (2) Nõudluse tingimused, (3) Sarnaste ja toetavate tööstuste olemasolu, (4) Ettevõtte strateegia, st…",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 0
-  },
-  {
     "question": "Klastrite elutsükkel (existence → exhaustion)?",
     "options": [
-      "Sünd – kasv – küpsus – üleminek või kahanemine;",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Sünd - kasv - küpsus - üleminek või kahanemine;",
+      "Üldine turundustaktika, mitte see mõiste"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "question": "Rajasõltuvus ja piirkondlik areng?",
     "options": [
-      "Varasemad valikud ja spetsialiseerumine kujundavad praeguseid võimalusi (lukustumine või üleminek);",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste"
+      "Varasemad valikud ja spetsialiseerumine kujundavad praeguseid võimalusi (lukustumine või üleminek);",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "question": "Schumpeteri innovatsioon ja loominguline häving?",
     "options": [
+      "Innovatsioon lükkab kõrvale vanad tehnoloogiad ja ärimudelid, luues uusi turge ja tootmisviise - majanduse dün…",
       "Raamatupidamise konsolideerimise protsess",
-      "Innovatsioon lükkab kõrvale vanad tehnoloogiad ja ärimudelid, luues uusi turge ja tootmisviise – majanduse dünaamika tuum.",
+      "Valitsemise audit ja järelevalve",
+      "Töökorralduse standardiseerimine"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Institutsionaalsed vs tehnoloogilised muutused?",
+    "options": [
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Institutsionaalsed (reeglid, normid) loovad stiimulid;"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Riiklik innovatsioonisüsteem (Lundvall)?",
+    "options": [
       "Töökorralduse standardiseerimine",
+      "Riikliku tasandi institutsioonide ja ettevõtete võrgustik, mis soodustab teadmiste loomist, levikut ja kasutus…",
+      "Raamatupidamise konsolideerimise protsess",
       "Valitsemise audit ja järelevalve"
     ],
     "correct": 1
   },
   {
-    "question": "Institutsionaalsed vs tehnoloogilised muutused?",
+    "question": "Kuidas toimib RIS?",
     "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Institutsionaalsed (reeglid, normid) loovad stiimulid;",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Piirkondlikul tasandil ühendab ettevõtted, teadmusasutused, arenduskeskused ja omavalitsused;",
+      "Raamatupidamise konsolideerimise protsess",
+      "Töökorralduse standardiseerimine",
+      "Valitsemise audit ja järelevalve"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
-    "question": "Riiklik innovatsioonisüsteem (Lundvall)?",
+    "question": "Miks Silicon Valley’t ei saa lihtsalt kopeerida?",
     "options": [
-      "Valitsemise audit ja järelevalve",
-      "Riikliku tasandi institutsioonide ja ettevõtete võrgustik, mis soodustab teadmiste loomist, levikut ja kasutust (ülikoolid, uurimisasutused,…",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Unikaalne ajalugu, kapitali ja talentide kriitiline mass, kultuur ja turu suurus;"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Probleemid eri regiooni tüüpides?",
+    "options": [
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Keskused: kõrged kulud, konkurents;",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Bathelt’i „local buzz“?",
+    "options": [
+      "Kohaliku suhtluse ja usaldusvõrgustike tihe „sumin“, mis kiirendab teadmiste levikut ja võimaldab kiiret koost…",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Teadmiste levikut soodustavad tegurid?",
+    "options": [
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Geograafiline lähedus, usaldus ja sotsiaalne kapital, liikuvus (inimeste mobiilsus), ühised projektid ja võrgu…",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks õppimine toimub eeskätt inimeste tasandil?",
+    "options": [
+      "Institutsioonid ei „õpi“ ilma inimesteta - teadmised luuakse ja liiguvad kontaktide võrgus;",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Nutikas spetsialiseerumine ja eristumine?",
+    "options": [
       "Raamatupidamise konsolideerimise protsess",
+      "Kohapõhine lähenemine, mis valib vähesed tugevad valdkonnad, kus on eelis;",
+      "Valitsemise audit ja järelevalve",
       "Töökorralduse standardiseerimine"
     ],
     "correct": 1
   },
   {
-    "question": "67. Kuidas toimib RIS?",
-    "options": [
-      "Valitsemise audit ja järelevalve",
-      "Töökorralduse standardiseerimine",
-      "Piirkondlikul tasandil ühendab ettevõtted, teadmusasutused, arenduskeskused ja omavalitsused;",
-      "Raamatupidamise konsolideerimise protsess"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "68. Miks Silicon Valley’t ei saa lihtsalt kopeerida?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Unikaalne ajalugu, kapitali ja talentide kriitiline mass, kultuur ja turu suurus;",
-      "Teise valdkonna raamistik, mitte antud teema"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "Probleemid eri regiooni tüüpides?",
-    "options": [
-      "Keskused: kõrged kulud, konkurents;",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "Bathelt’i „local buzz“?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Kohaliku suhtluse ja usaldusvõrgustike tihe „sumin“, mis kiirendab teadmiste levikut ja võimaldab kiiret koostööd ning innovatsiooni."
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Teadmiste levikut soodustavad tegurid?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Geograafiline lähedus, usaldus ja sotsiaalne kapital, liikuvus (inimeste mobiilsus), ühised projektid ja võrgustikud."
-    ],
-    "correct": 3
-  },
-  {
-    "question": "72. Miks õppimine toimub eeskätt inimeste tasandil?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Institutsioonid ei „õpi“ ilma inimesteta – teadmised luuakse ja liiguvad kontaktide võrgus;"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Nutikas spetsialiseerumine ja eristumine?",
-    "options": [
-      "Kohapõhine lähenemine, mis valib vähesed tugevad valdkonnad, kus on eelis;",
-      "Valitsemise audit ja järelevalve",
-      "Töökorralduse standardiseerimine",
-      "Raamatupidamise konsolideerimise protsess"
-    ],
-    "correct": 0
-  },
-  {
     "question": "Entrepreneurial discovery protsess?",
     "options": [
-      "Üldine turundustaktika, mitte see mõiste",
-      "Ettevõtjate, teadlaste ja avaliku sektori koostöös toimuv iteratiivne avastusprotsess, mis tuvastab uued nišid ja suunab poliitikainstrument…",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Ettevõtjate, teadlaste ja avaliku sektori koostöös toimuv iteratiivne avastusprotsess, mis tuvastab uued nišid…",
       "Teise valdkonna raamistik, mitte antud teema"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "question": "Ettevõtluse ökosüsteemi elemendid (Isenberg; Mason & Brown)?",
     "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
       "Üldine turundustaktika, mitte see mõiste",
-      "Inimkapital ja kultuur, turg ja nõudlus, rahastus, toetavad institutsioonid ja reeglid, taristu, võrgustikud ja tugiteenused.",
-      "Operatiivtasandi töövõte, mitte kontseptsioon"
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Inimkapital ja kultuur, turg ja nõudlus, rahastus, toetavad institutsioonid ja reeglid, taristu, võrgustikud j…",
+      "Teise valdkonna raamistik, mitte antud teema"
     ],
     "correct": 2
   },
@@ -753,11 +753,11 @@
     "question": "Kõrgkooli kolm põhifunktsiooni (OECD 2007)?",
     "options": [
       "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "(1) Õpetus ja lõpetajate ettevalmistus;",
       "Üldine turundustaktika, mitte see mõiste",
-      "(1) Õpetus ja lõpetajate ettevalmistus;"
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
     ],
-    "correct": 3
+    "correct": 1
   },
   {
     "question": "Kolmik-, nelik- ja viisikheeliks?",
@@ -765,88 +765,88 @@
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Kolmik: ülikool–ettevõtted–riik;"
+      "Kolmik: ülikool-ettevõtted-riik;"
     ],
     "correct": 3
   },
   {
-    "question": "78. Miks kõrgkoolide regionaalne paiknemine on oluline?",
-    "options": [
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Üldine turundustaktika, mitte see mõiste",
-      "Tõstab kohaliku inimkapitali taset, toetab ettevõtete DUI■innovatsiooni ja loob tugistruktuure (kolledžid, kompetentsikeskused)."
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Regionaalpoliitika peamised eesmärgid Eestis?",
-    "options": [
-      "Üldine turundustaktika, mitte see mõiste",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Vähendada piirkondlikke erinevusi, tõsta tootlikkust ja tööhõivet kogu riigis, tugevdada kohapõhist innovatsiooni ja elukeskkonda."
-    ],
-    "correct": 3
-  },
-  {
-    "question": "80. 2014–2020 struktuurivahendite mõju – mis ilmnes?",
+    "question": "Miks kõrgkoolide regionaalne paiknemine on oluline?",
     "options": [
       "Teise valdkonna raamistik, mitte antud teema",
-      "Operatiivtasandi töövõte, mitte kontseptsioon",
-      "Toetused parandasid taristut ja võimekust, kuid mitmes riigis ning Eestis kasvas keskus■ääremaa lõhe ja süsteem oli killustunud;",
-      "Üldine turundustaktika, mitte see mõiste"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "RISi tõhustamine maakondlikul tasandil?",
-    "options": [
-      "Valitsemise audit ja järelevalve",
-      "Raamatupidamise konsolideerimise protsess",
-      "Luua stabiilse baasrahastusega arenduskeskused, DIH■teenused, mikrokraadide pakkumine, katsetehased, ühisprojektid ja seire KPIdega.",
-      "Töökorralduse standardiseerimine"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "82. Miks regionaalpoliitika → regionaalne innovatsioonipoliitika?",
-    "options": [
-      "Raamatupidamise konsolideerimise protsess",
-      "Töökorralduse standardiseerimine",
-      "Sest konkurentsivõime ja sissetulekud sõltuvad üha enam teadmuspõhisusest ja innovatsioonist;",
-      "Valitsemise audit ja järelevalve"
-    ],
-    "correct": 2
-  },
-  {
-    "question": "Eesti ettevõtlusruumid ja keskuste roll?",
-    "options": [
-      "Teise valdkonna raamistik, mitte antud teema",
-      "Eestis on hajusad, kuid keskused koondavad talente, taristut ja võrgustikke;",
+      "Tõstab kohaliku inimkapitali taset, toetab ettevõtete DUI■innovatsiooni ja loob tugistruktuure (kolledžid, kom…",
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste"
     ],
     "correct": 1
   },
   {
-    "question": "84. Miks väikelinnade/maapiirkondade arendamisel on vaja teadmuspõhiseid institutsioone?",
+    "question": "Regionaalpoliitika peamised eesmärgid Eestis?",
+    "options": [
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Vähendada piirkondlikke erinevusi, tõsta tootlikkust ja tööhõivet kogu riigis, tugevdada kohapõhist innovatsio…"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "2014–2020 struktuurivahendite mõju – mis ilmnes?",
+    "options": [
+      "Teise valdkonna raamistik, mitte antud teema",
+      "Toetused parandasid taristut ja võimekust, kuid mitmes riigis ning Eestis kasvas keskus■ääremaa lõhe ja süstee…",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "RISi tõhustamine maakondlikul tasandil?",
+    "options": [
+      "Luua stabiilse baasrahastusega arenduskeskused, DIH■teenused, mikrokraadide pakkumine, katsetehased, ühisproje…",
+      "Raamatupidamise konsolideerimise protsess",
+      "Valitsemise audit ja järelevalve",
+      "Töökorralduse standardiseerimine"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks regionaalpoliitika → regionaalne innovatsioonipoliitika?",
+    "options": [
+      "Sest konkurentsivõime ja sissetulekud sõltuvad üha enam teadmuspõhisusest ja innovatsioonist;",
+      "Töökorralduse standardiseerimine",
+      "Raamatupidamise konsolideerimise protsess",
+      "Valitsemise audit ja järelevalve"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Eesti ettevõtlusruumid ja keskuste roll?",
+    "options": [
+      "Eestis on hajusad, kuid keskused koondavad talente, taristut ja võrgustikke;",
+      "Üldine turundustaktika, mitte see mõiste",
+      "Operatiivtasandi töövõte, mitte kontseptsioon",
+      "Teise valdkonna raamistik, mitte antud teema"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks väikelinnade/maapiirkondade arendamisel on vaja teadmuspõhiseid institutsioone?",
     "options": [
       "Operatiivtasandi töövõte, mitte kontseptsioon",
       "Üldine turundustaktika, mitte see mõiste",
       "Teise valdkonna raamistik, mitte antud teema",
-      "Need toovad oskused, teadmusvõimekuse ja võrgustikud kohale (kolledžid, kompetentsikeskused), mis kompenseerib keskuse kauguse."
+      "Need toovad oskused, teadmusvõimekuse ja võrgustikud kohale (kolledžid, kompetentsikeskused), mis kompenseerib…"
     ],
     "correct": 3
   },
   {
     "question": "Eesti RISi „tuunimise“ põhipakkumised?",
     "options": [
-      "Valitsemise audit ja järelevalve",
       "Fokusseerida TAIE fookusvaldkondadele kohalikus võtmes;",
       "Töökorralduse standardiseerimine",
-      "Raamatupidamise konsolideerimise protsess"
+      "Raamatupidamise konsolideerimise protsess",
+      "Valitsemise audit ja järelevalve"
     ],
-    "correct": 1
+    "correct": 0
   }
 ]
