@@ -4,36 +4,14 @@
   <meta charset="UTF-8" />
   <title>EVKI harjutustest</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px;
-      line-height: 1.5;
-    }
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; line-height: 1.5; }
     h1 { margin-top: 0; }
-    .question {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
+    .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
     .question p { margin: 0 0 8px 0; font-weight: bold; }
-    label {
-      display: inline-block;
-      margin: 4px 0;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-right: 8px;
-      cursor: pointer;
-    }
-    /* ÕIGE/VALE märgistuse klassid */
+    label { display: inline-block; margin: 4px 0; padding: 2px 4px; border-radius: 4px; }
+    button { padding: 10px 20px; font-size: 16px; margin-right: 8px; cursor: pointer; }
     .correct  { background-color: #c8f7c5; } /* heleroheline */
     .incorrect{ background-color: #f7c5c5; } /* helepunane */
-
     #result { font-weight: bold; margin-top: 12px; }
     #error  { color: #b00020; margin-top: 12px; }
   </style>
@@ -41,18 +19,176 @@
 <body>
 
   <h1>EVKI harjutustest</h1>
-  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või uue testi jaoks vajuta „Tee uus test”.</p>
+  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või tee uue komplekti jaoks „Tee uus test”.</p>
 
   <div id="quiz"></div>
 
-  <!-- NUPUD: EI ole onclick atribuutide -->
   <button id="checkBtn">Näita tulemust</button>
   <button id="newBtn">Tee uus test</button>
 
   <p id="result"></p>
   <p id="error"></p>
 
-  <!-- Lae rakenduse loogika (hoia script.js samas kaustas kui index.html) -->
-  script.js</script>
+  <!-- INLINE skript: ei kasuta üldse eraldi script.js faili -->
+  <script>
+    console.log('EVKI app: inline script käivitub');
+
+    let allQuestions = [];
+    let quizQuestions = [];
+
+    // Initsialiseeri kui DOM on valmis
+    window.addEventListener('DOMContentLoaded', async () => {
+      console.log('EVKI app: DOMContentLoaded');
+      // Lisa nupuvajutused JS-ist (väldime HTML onclick)
+      document.getElementById('checkBtn').addEventListener('click', submitQuiz);
+      document.getElementById('newBtn').addEventListener('click', newTest);
+
+      await loadQuestions();
+      startQuiz();
+    });
+
+    async function loadQuestions() {
+      const errEl = document.getElementById('error');
+      errEl.textContent = '';
+      try {
+        // Cache-busting, et GitHub Pages ei annaks vana faili
+        const res = await fetch('./questions.json?v=' + Date.now());
+        console.log('EVKI app: fetch questions.json status', res.status);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
+        const text = await res.text();
+        const data = JSON.parse(text); // annab vea kui JSON on katki
+        if (!Array.isArray(data) || data.length === 0) {
+          throw new Error('Tyhi või vale formaadis JSON');
+        }
+        allQuestions = data;
+        console.log('EVKI app: questions.json laaditud, kirjeid:', data.length);
+      } catch (e) {
+        console.warn('EVKI app: JSON load/parse error:', e);
+        errEl.textContent = 'Hoiatus: questions.json ei laadinud. Kasutan näidisküsimusi. (See on OK testimiseks.)';
+        // Fallback – et leht kindlasti toimiks (3 näidisküsimust)
+        allQuestions = [
+          {
+            question: 'Mis on ettevõtluskeskkond?',
+            options: [
+              'Ainult ettevõtte sisekeskkond',
+              'Ettevõtet ümbritsev sise- ja välistegurite kogum',
+              'Ainult makrokeskkond',
+              'Ainult seadusandlus'
+            ],
+            correct: 1
+          },
+          {
+            question: 'Mis on PESTLE analüüs?',
+            options: [
+              'Finantsanalüüs',
+              'Turundusanalüüs',
+              'Makrokeskkonna analüüs',
+              'Konkurentsianalüüs'
+            ],
+            correct: 2
+          },
+          {
+            question: 'Millisteks keskkondadeks jaguneb ettevõtluskeskkond?',
+            options: [
+              'Sisekeskkond ja väliskeskkond',
+              'Avalik ja erasektor',
+              'Kohalik ja globaalne',
+              'Tööstus ja teenused'
+            ],
+            correct: 0
+          }
+        ];
+        console.log('EVKI app: fallback-küsimused kasutusel');
+      }
+    }
+
+    function startQuiz() {
+      quizQuestions = shuffleArray(allQuestions).slice(0, 20);
+      renderQuiz();
+      const resultEl = document.getElementById('result');
+      if (resultEl) resultEl.textContent = '';
+      console.log('EVKI app: startQuiz OK, kuvatakse', quizQuestions.length, 'küsimust');
+    }
+
+    function renderQuiz() {
+      const quizDiv = document.getElementById('quiz');
+      quizDiv.innerHTML = '';
+
+      quizQuestions.forEach((q, index) => {
+        let html = '<div class="question">';
+        html += '<p><strong>' + (index + 1) + '. ' + escapeHtml(q.question) + '</strong></p>';
+        q.options.forEach((option, i) => {
+          html += `
+            <label>
+              <input type="radio" name="q${index}" value="${i}">
+              ${escapeHtml(option)}
+            </label><br>`;
+        });
+        html += '</div>';
+        quizDiv.innerHTML += html;
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+
+      quizQuestions.forEach((q, index) => {
+        const selected = document.querySelector('input[name="q' + index + '"]:checked');
+        const optionInputs = document.querySelectorAll('input[name="q' + index + '"]');
+
+        // Lukusta valikud pärast kontrolli
+        optionInputs.forEach(inp => { inp.disabled = true; });
+
+        // Õige vastus roheliseks
+        const correctInput = document.querySelector('input[name="q' + index + '"][value="' + q.correct + '"]');
+        if (correctInput) {
+          const correctLabel = correctInput.closest('label');
+          if (correctLabel) correctLabel.classList.add('correct');
+        }
+
+        // Vale valik punaseks
+        if (selected) {
+          const selectedIndex = Number(selected.value);
+          if (selectedIndex === q.correct) {
+            score++;
+          } else {
+            const wrongLabel = selected.closest('label');
+            if (wrongLabel) wrongLabel.classList.add('incorrect');
+          }
+        }
+      });
+
+      document.getElementById('result').innerText =
+        'Tulemus: ' + score + ' / ' + quizQuestions.length;
+    }
+
+    function newTest() {
+      startQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function shuffleArray(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    // Ekspordi globaalseks – mitte vajalik, aga “kindluse mõttes”
+    window.submitQuiz = submitQuiz;
+    window.newTest = newTest;
+  </script>
 </body>
 </html>
