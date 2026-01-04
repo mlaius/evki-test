@@ -1,0 +1,852 @@
+[
+  {
+    "question": "Mis on ettevõtluskeskkond?",
+    "options": [
+      "Finantsanalüüsi metoodika",
+      "Tarneahela logistika protsess",
+      "Ainult mikrokeskkond",
+      "Ettevõtluskeskkond on ettevõtet ümbritsev sise- ja välistegurite kogum, mis mõjutab ettevõtte eesmärkide seadmist ja saavutamist – sh mikrokeskkond (otsesed turuosalised) ja makrok…"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Millisteks keskkondadeks jaguneb ettevõtluskeskkond?",
+    "options": [
+      "Üksnes organisatsioonikultuur",
+      "Ainult mikrokeskkond",
+      "Sisekeskkond, väliskeskkond.",
+      "Hinnastrateegia tüüp"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kuidas jaguneb ettevõtte väliskeskkond?",
+    "options": [
+      "Ainult makrokeskkond",
+      "Ainult väliskeskkond",
+      "Mikrokeskkond (kliendid, partnerid, hankijad, kreeditorid, konkurendid, regulaatorid) ja makrokeskkond (PESTLE: poliitiline, majanduslik, sotsiaalne, tehnoloogiline, õiguslik, ökol…",
+      "Ainult sisekeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kes kuuluvad ettevõtte mikrokeskkonda?",
+    "options": [
+      "Ainult makrokeskkond",
+      "Ainult väliskeskkond",
+      "Kliendid, koostööpartnerid, hankijad, kreeditorid, konkurendid, regulaatorid.",
+      "Ainult sisekeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kuidas jaguneb ettevõtte makrokeskkond?",
+    "options": [
+      "PESTLE: poliitiline, majanduslik, sotsiaalne, tehnoloogiline, õiguslik, ökoloogiline.",
+      "Konkurentsianalüüs",
+      "Finantsanalüüs",
+      "Turundusanalüüs"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on PESTLE analüüs?",
+    "options": [
+      "Turundusanalüüs",
+      "Finantsanalüüs",
+      "Metoodika ettevõtte makrokeskkonna (poliitilised, majanduslikud, sotsiaalsed, tehnoloogilised, õiguslikud ja ökoloogilised) mõjurite süstemaatiliseks kaardistamiseks ja mõjude hind…",
+      "Konkurentsianalüüs"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse P, M, S, T, Õ, Ö keskkonnas?",
+    "options": [
+      "P: valitsus, poliitika, maksud, kaubanduspoliitika; M: kasv, inflatsioon, tööjõuturg, kursid; S: demograafia, kultuur, tarbijakäitumine; T: tehnoloogia, digitaliseerimine, AI, R&D;…",
+      "Hinnastrateegia tüüp",
+      "Tarneahela logistika protsess",
+      "Konkurentsianalüüsi lähenemine"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Makromajanduslike prognooside tegijad ja täpsus?",
+    "options": [
+      "inflatsioon, palk, Euribor",
+      "kasv, inflatsioon, rahastus, Euribor",
+      "Eestis avaldavad prognoose eeskätt Eesti Pank, Rahandusministeerium, Konjunktuuriinstituut; rahvusvaheliselt Euroopa Komisjon, IMF, OECD.",
+      "kasv, inflatsioon, palk"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kuidas ettevõtted arvestavad prognoose?",
+    "options": [
+      "Ainult kliendisegmendi kirjeldus",
+      "Kasutavad stsenaariumipõhist planeerimist (optimistlik/baas/pessimistlik), hindavad nõudluse, hinna ja finantskulude (intress, valuuta) tundlikkust ning seovad investeeringud ja va…",
+      "Ainult sisekeskkond",
+      "Üksnes organisatsioonikultuur"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mikrokeskkonna osaliste peamised huvid?",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Tarnijad: stabiilne nõudlus ja maksed; kliendid: kvaliteet, hind, kättesaadavus; kreeditorid: risk ja tootlus, tagatis; koostööpartnerid: vastastikune kasu ja ligipääs; konkurendid…",
+      "Ainult kliendisegmendi kirjeldus",
+      "Üksnes organisatsioonikultuur"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Sisekeskkonna huvigrupid?",
+    "options": [
+      "Ainult tarnijate haldus",
+      "Turunduskanali valik",
+      "Üksnes organisatsioonikultuur",
+      "Omanikud, juhtkond, töötajad ning muud ettevõttesisesed tegurid/struktuurid."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Omanike huvid?",
+    "options": [
+      "Õigusliku riskijuhtimise raamistik",
+      "Ainult mikrokeskkond",
+      "Rikkuse maksimeerimine (tulunorm, dividendid, väärtuse kasv), investeeringute tulu, kontrolli tase, riskide juhtimine, maksustamine.",
+      "Ainult makrokeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Juhtkonna huvid?",
+    "options": [
+      "Üksnes organisatsioonikultuur",
+      "Maine ja saavutused, otsustusvabadus, tasu, karjäär ja mõju; vahel ka erinev riskiprofiil võrreldes omanikega (agentuurikonflikti oht).",
+      "Õigusliku riskijuhtimise raamistik",
+      "Rahastusinstrumentide loetelu"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Töötajate huvid?",
+    "options": [
+      "Ainult väliskeskkond",
+      "Turunduskanali valik",
+      "Õiglane palk ja stabiilsus, areng ja eneseteostus, head töötingimused, tunnustus ja sotsiaalne turvalisus.",
+      "Ainult mikrokeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kui juhtkond pole omanike ringis – mis probleemid?",
+    "options": [
+      "Tekivad agentuuririskid: eesmärkide lahknevus, ülemäärane riskimine või riskikartlikkus, info asümmeetria, stiimulite väärhäälestus; vaja valitsemismehhanisme (järelevalve, tasusüs…",
+      "Ainult väliskeskkond",
+      "Ainult makrokeskkond",
+      "Rahastusinstrumentide loetelu"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on SWOT analüüs?",
+    "options": [
+      "Finantsprognooside koostamine",
+      "Projektijuhtimise kaardistamine",
+      "Süsteem ettevõtte sise■ (Tugevused, Nõrkused) ja välistegurite (Võimalused, Ohud) süstematiseerimiseks ning strateegiliste valikute raamistamiseks.",
+      "Eesmärkide seadmine"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kuidas SWOT seostub PESTLE’iga?",
+    "options": [
+      "Konkurentsianalüüs",
+      "Finantsanalüüs",
+      "PESTLE kaardistab makrotegurid; neist tuletatakse SWOTi välised komponendid – Võimalused ja Ohud –, mida kõrvutatakse ettevõtte siseste tugevuste ja nõrkustega.",
+      "Turundusanalüüs"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "SWOT sisemised vs välised tegurid?",
+    "options": [
+      "Projektijuhtimise kaardistamine",
+      "Sisemised: ressursid, oskused, protsessid (Tugevused/Nõrkused).",
+      "Eesmärkide seadmine",
+      "Finantsprognooside koostamine"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Näited SWOT elementidest",
+    "options": [
+      "Tugevused: kompetentne personal, unikaalne toode, hea bränd; Nõrkused: madal kvaliteet, kehv turundus; Võimalused: kasvav nõudlus, soodsam regulatsioon; Ohud: maksumuudatused, demo…",
+      "Finantsprognooside koostamine",
+      "Projektijuhtimise kaardistamine",
+      "Eesmärkide seadmine"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on ettevõtluse tugisüsteem?",
+    "options": [
+      "koolitus, rahastus, kvaliteeditaristu",
+      "nõustamine, koolitus, rahastus",
+      "nõustamine, koolitus, rahastus, kvaliteeditaristu",
+      "Teenuste ja institutsioonide võrgustik, mis toetab ettevõtete loomist, kasvu ja rahvusvahelistumist (nõustamine, koolitus, rahastus, kvaliteeditaristu)."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Tugisüsteemi eesmärk Eestis?",
+    "options": [
+      "Suurendada ettevõtete TAI■mahukust, lisandväärtust ja eksporti kõigis piirkondades; vähendada halduskoormust; toetada digitaliseerimist, ringmajandust ja talentide kasvu.",
+      "Ainult makrokeskkond",
+      "Tarneahela logistika protsess",
+      "Ainult sisekeskkond"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Peamised riiklikud toetuste institutsioonid?",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Ainult kliendisegmendi kirjeldus",
+      "Ainult väliskeskkond",
+      "Ettevõtluse Arendamise Sihtasutus/KredEx (EAS/KredEx), Eesti Teadusagentuur (ETAg), ministeeriumid (HTM, MKM jt), maakondlikud arenduskeskused; kvaliteeditaristu (akrediteerimine,…"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Majanduse areng ja eeldused",
+    "options": [
+      "Rahastusinstrumentide loetelu",
+      "Ainult kliendisegmendi kirjeldus",
+      "Ainult väliskeskkond",
+      "Tootlikkuse kasv läbi innovatsiooni ja investeeringute; inimkapital (oskused, haridus), T&A;, avatud turg, kvaliteeditaristu, kapitali kättesaadavus, stabiilne poliitika ja õigusru…"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Eesti majanduse tugevused, nõrkused, väljakutsed",
+    "options": [
+      "Ainult makrokeskkond",
+      "Ainult kliendisegmendi kirjeldus",
+      "Tugevused: digiühiskond, paindlikkus, idusektori edu; Nõrkused: madal TAI tase ettevõtetes, piirkondlikud erinevused; Väljakutsed: väike siseturg, tööjõupuudus, energiahinnad, lisa…",
+      "Õigusliku riskijuhtimise raamistik"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Miks tähtsad eksport ja VOI?",
+    "options": [
+      "Finantsanalüüsi metoodika",
+      "Konkurentsianalüüsi lähenemine",
+      "Rahastusinstrumentide loetelu",
+      "Väikese turu korral on kasvuks vaja eksporti; VOI toovad kapitali, tehnoloogiat ja oskusi ning loovad kõrgema lisandväärtusega töökohti."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Lisandväärtuse olemus ja tähtsus",
+    "options": [
+      "Lisandväärtus on müügitulu miinus vahetarbimine; majanduse rikkuse ja palkade peamine alus – mida kõrgem lisandväärtus töötaja kohta, seda konkurentsivõimelisem majandus.",
+      "Ainult makrokeskkond",
+      "Üksnes organisatsioonikultuur",
+      "Tarneahela logistika protsess"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Ettevõtte koha muutumine väärtusahelas",
+    "options": [
+      "Liikumine allhankest brändi ja R&D;■ga lõpp■toote/teenuse pakkujaks; turundus■ ja teenuseinnovatsioon ning IP suurendavad marginaali.",
+      "Tarneahela logistika protsess",
+      "Ainult seadusandlus",
+      "Hinnastrateegia tüüp"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kohalik ettevõtluskeskkond ja ootused",
+    "options": [
+      "Konkurentsianalüüsi lähenemine",
+      "Taristu (energia, transport), kättesaadav tööjõud ja koolitus, kiire haldus, koostöövõrgustikud, stabiilne ruumiline planeering ja ruumipimedate turulahenduste vältimine piirkondli…",
+      "Tarneahela logistika protsess",
+      "Hinnastrateegia tüüp"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Ettevõtluse hindamine ja toetamine KOVis",
+    "options": [
+      "KOV saab pakkuda ärikeskkonna teenuseid (planeering, taristu), inkubatsiooni, koostööd koolidega, kohalikke toetusi ning andmepõhist järelhindamist.",
+      "Turunduskanali valik",
+      "Tarneahela logistika protsess",
+      "Ainult kliendisegmendi kirjeldus"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Regionaalse innovatsioonisüsteemi ja konkurentsivõime mudel",
+    "options": [
+      "Ainult organisatsioonikultuur",
+      "RIS ühendab ettevõtted, teadus■/haridusasutused, arenduskeskused, avaliku sektori ja finantsvahendajad, et soodustada teadmussiiret ja DUI■innovatsiooni; konkurentsivõime kasv tugi…",
+      "Ainult tarneahela logistika",
+      "Ainult hinnastrateegia"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Välisturunduse strateegia osad",
+    "options": [
+      "Tarneahela logistika protsess",
+      "Sihtturu valik ja segmentimine, väärtuspakkumine ja positsioneerimine, kanalid ja partnerlus, sertifikaadid ja regulatiivne vastavus, hinnastamine, turundus■/müügiplaan, KPId.",
+      "Ainult sisekeskkond",
+      "Ainult väliskeskkond"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Turu konkurentsianalüüs osad",
+    "options": [
+      "Ainult sisekeskkond",
+      "Finantsanalüüsi metoodika",
+      "Ainult seadusandlus",
+      "Tööstusharu struktuur (konkurentsi tase), asendustooted, sisenemisbarjäärid, ostjate/tarnijate jõud, regulaatorid; konkurentide profiilid ja väärtuspakkumised."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Innovatsiooni mõiste, eesmärgid ja liigid",
+    "options": [
+      "Ainult tarneahela logistika",
+      "Ainult organisatsioonikultuur",
+      "Ainult hinnastrateegia",
+      "Uute ideede rakendamine väärtuse loomiseks."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Innovatsiooniprotsess kui konkurentsivõime",
+    "options": [
+      "Ainult organisatsioonikultuur",
+      "Ainult tarneahela logistika",
+      "Ainult hinnastrateegia",
+      "Innovatsioon tõstab lisandväärtust ja võimaldab astuda väärtusahelas üles – eriti DUI■mudelis, kus koostöö ja katsetamine on keskne."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Leiutis vs innovatsioon",
+    "options": [
+      "Ainult hinnastrateegia",
+      "Ainult tarneahela logistika",
+      "Ainult organisatsioonikultuur",
+      "Leiutis = uus idee/avastus; innovatsioon = leiutise edukas turule viimine/juurutamine, mis loob majandusliku või ühiskondliku väärtuse."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Eristumine ettevõtluses",
+    "options": [
+      "Konkurentsieeliste loomine (disain, kvaliteet, kiirus, teenus, bränd), mis lubab küsida kõrgemat hinda või võita turuosa.",
+      "Ainult organisatsioonikultuur",
+      "Ainult hinnastrateegia",
+      "Ainult tarneahela logistika"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Juhtimise põhimõtted rahvusvahelises konkurentsis",
+    "options": [
+      "Strateegiline fokusseerimine, kvaliteedijuhtimine, digitaliseerimine ja andmepõhisus, oskuslik rahvusvaheline turundus, talentide juhtimine.",
+      "Ainult kliendisegmendi kirjeldus",
+      "Ainult mikrokeskkond",
+      "Konkurentsianalüüsi lähenemine"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Peamised turutõrked, mida riik leevendab",
+    "options": [
+      "Tarneahela logistika protsess",
+      "Avalike hüvede alarahastatus, välismõjud (posit./neg.), informatsiooni asümmeetria, turujõu kuritarvitus, koordineerimise ebaõnnestumised, piiratud riskikapital.",
+      "Hinnastrateegia tüüp",
+      "Ainult kliendisegmendi kirjeldus"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Adam Smithi „nähtamatu käsi“ ja tööjaotus",
+    "options": [
+      "Turunduskanali valik",
+      "Ainult mikrokeskkond",
+      "Tarneahela logistika protsess",
+      "„Nähtamatu käsi“ kirjeldab, kuidas isiklik kasuotsing võib konkurentsi kaudu teenida ühiskondlikku heaolu; tööjaotus suurendab tootlikkust ja spetsialiseerumist."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Smith vs Keynes riigi rollis",
+    "options": [
+      "Smith: riigi minimaalne sekkumine, turg koordineerib.",
+      "Ainult seadusandlus",
+      "Ainult tarnijate haldus",
+      "Õigusliku riskijuhtimise raamistik"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "„Lemon market“ (Akerlof 1970) ja infotõrge",
+    "options": [
+      "Ainult väliskeskkond",
+      "Üksnes organisatsioonikultuur",
+      "Ainult seadusandlus",
+      "Turg, kus kvaliteeti on raske hinnata, viib info asümmeetria tõttu häid tooteid turult välja (vastupidine valik)."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Eraomandi kaitse ja ettevõtlusvabadus (Locke)",
+    "options": [
+      "Rahastusinstrumentide loetelu",
+      "Ainult mikrokeskkond",
+      "Locke’i teoorias tagab eraomandi kaitse stiimuli tööks ja investeeringuteks; ettevõtlusvabadus on efektiivse turukorra alus.",
+      "Ainult seadusandlus"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Reguleeriv turumajandusriik vs turumajanduslik arendusriik",
+    "options": [
+      "Rahastusinstrumentide loetelu",
+      "Reguleeriv: seab reeglid ja tagab konkurentsi.",
+      "Ainult kliendisegmendi kirjeldus",
+      "Finantsanalüüsi metoodika"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Arendusriigi tunnused (Dicken)",
+    "options": [
+      "Finantsanalüüsi metoodika",
+      "Ainult tarnijate haldus",
+      "Strateegiline tööstuspoliitika, sihipärased investeerimisprogrammid, eksporttoetus, T&A; rahastus, taristu ja oskustööjõu arendamine, aktiivne läbirääkimine VOI üle.",
+      "Üksnes organisatsioonikultuur"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Miks hoida lahus bürokraatia ja poliitiline juhtimine?",
+    "options": [
+      "Turunduskanali valik",
+      "Ainult sisekeskkond",
+      "Vähendab klientelismi ja tagab professionaalse, järjepideva poliitikate elluviimise; väldib lühiajalist valimistsüklit.",
+      "Ainult makrokeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Näited arendusriigi poliitikatest",
+    "options": [
+      "Ainult väliskeskkond",
+      "Tarneahela logistika protsess",
+      "IPCEI/projektitoetus, maksusoodustused, taristu ja „pehme maandumine“ VOI jaoks, innovatiivsed riigihanked, klastrid, DIH■id, ekspordigarantiid.",
+      "Finantsanalüüsi metoodika"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Ühishuvid, mis seovad riike ja ettevõtteid",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Töökohti ja maksutulu loov majanduskasv, tehnoloogia arendamine, tarneahelate kindlus, regionaalne heaolu ja julgeolek.",
+      "Konkurentsianalüüsi lähenemine",
+      "Ainult väliskeskkond"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Rahvusvaheline tootmisvõrgustik",
+    "options": [
+      "Ainult turunduskanalite kirjeldus",
+      "Ainult finantsrahastus",
+      "Ainult seadusandlik raamistik",
+      "Üle piiride integreeritud tarneahelad ja tütarettevõtted/partnerid, kus väärtus luuakse mitmes riigis koordineeritult."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks rahvusvahelistutakse (turg vs varad)?",
+    "options": [
+      "Ainult seadusandlus",
+      "Ainult sisekeskkond",
+      "Konkurentsianalüüsi lähenemine",
+      "Turule suunatud: ligipääs uutele turgudele, kliendilähedus."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "VOI vs portfelliinvesteering",
+    "options": [
+      "Üksnes organisatsioonikultuur",
+      "VOI = kontroll ja püsiv kohalolek (reainvesteering, tütar).",
+      "Ainult makrokeskkond",
+      "Turunduskanali valik"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Riigid vs rahvusvahelised ettevõtted – läbirääkimisloogika",
+    "options": [
+      "Ainult väliskeskkond",
+      "Ainult sisekeskkond",
+      "Üksnes organisatsioonikultuur",
+      "Vahetus: maksusoodustused, taristu, tööjõu ettevalmistus vs töökohad, T&A;, eksport, maksutulu; eesmärk on win■win kokkulepped ja lepingulised garantiid."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Tollid ja mittetariifsed piirangud – mõju",
+    "options": [
+      "Finantsanalüüsi metoodika",
+      "Võivad kaitsta kodumaist tootmist (import kallim), ent risk on konkurentsi langus ja vastumeetmed; mõjub hindadele ja tarneahelatele.",
+      "Konkurentsianalüüsi lähenemine",
+      "Turunduskanali valik"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Ettevõtlikkuse definitsioon (Shapero & Vesper)",
+    "options": [
+      "Ettevõtlikkus on kavatsuslik tegevus võimaluste ärakasutamiseks uue väärtuse loomiseks; rõhk on algatusel, võimaluse tajumisel ja ressursi mobiliseerimisel.",
+      "Tarneahela logistika protsess",
+      "Ainult tarnijate haldus",
+      "Ainult makrokeskkond"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks väikeettevõtlus on vajalik?",
+    "options": [
+      "Ainult seadusandlus",
+      "Loojad tööhõivet ja paindlikkust, aitavad hajutada šokke, loovad nišš■innovatsiooni ja regionaalset arengut.",
+      "Turunduskanali valik",
+      "Tarneahela logistika protsess"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Riigi võimalused ettevõtluse aktiviseerimiseks",
+    "options": [
+      "Ainult kliendisegmendi kirjeldus",
+      "Konkurentsianalüüsi lähenemine",
+      "Nõustamine ja koolitused, rahastusinstrumendid (laen, grant, garantiid), maksusoodustused, innovatsioonihanked, eksporditugi, klastrid, digitaliseerimise toetus.",
+      "Ainult sisekeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Ettevõtlusaktiivsuse kasvu tegurid",
+    "options": [
+      "Institutsioonide kvaliteet ja stabiilsus, kapitali kättesaadavus, inimkapital/oskused, turuvõimalused, võrgustikud ja eeskujude nähtavus.",
+      "Turunduskanali valik",
+      "Üksnes organisatsioonikultuur",
+      "Ainult tarnijate haldus"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Ettevõtlusmiljöö mõiste",
+    "options": [
+      "Kohalik institutsionaalne, sotsiaalne ja ruumiline keskkond (reeglid, kultuur, võrgustikud, taristu), mis kujundab ettevõtlusaktiivsust ja konkurentsivõimet.",
+      "reeglid, kultuur, võrgustikud",
+      "reeglid, kultuur, rahastus, taristu",
+      "kultuur, võrgustikud, taristu"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kondratjevi lained ja tehnoloogiad",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Tarneahela logistika protsess",
+      "Pikaajalised (40–60 a) majandustsüklid, mida seostatakse tehnoloogiliste läbimurdetega (aurumasin, raudtee, elekter/keemia, autotööstus, IKT jne).",
+      "Finantsanalüüsi metoodika"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Toote elutsükli teooria",
+    "options": [
+      "Finantsanalüüsi metoodika",
+      "Ainult väliskeskkond",
+      "Ainult tarnijate haldus",
+      "Tooted läbivad faasid: juurutus, kasv, küpsus, langus; strateegiad muutuvad vastavalt (hind, turundus, investeeringud)."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Klastrite põhijooned (Porter)",
+    "options": [
+      "Ainult seadusandlik raamistik",
+      "Ainult turunduskanalite kirjeldus",
+      "Geograafiliselt lähestikku ettevõtete, tarnijate, teenusepakkujate ja institutsioonide kogum, mis suurendab tootlikkust, innovatsiooni ja uute ettevõtete sündi.",
+      "Ainult finantsrahastus"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Porteri rombi neli komponenti",
+    "options": [
+      "Ainult finantsrahastus",
+      "Ainult turunduskanalite kirjeldus",
+      "(1) Tootmisfaktorid (oskused, taristu), (2) Nõudluse tingimused, (3) Sarnaste ja toetavate tööstuste olemasolu, (4) Ettevõtte strateegia, struktuur ja konkurents.",
+      "Ainult seadusandlik raamistik"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Klastrite elutsükkel (existence → exhaustion)",
+    "options": [
+      "Sünd – kasv – küpsus – üleminek või kahanemine; taastumiseks vaja uuenduslikkust ja uute alavaldkondade esiletõusu.",
+      "Ainult tarnijate haldus",
+      "Ainult kliendisegmendi kirjeldus",
+      "Õigusliku riskijuhtimise raamistik"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Rajasõltuvus ja piirkondlik areng",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Ainult makrokeskkond",
+      "Varasemad valikud ja spetsialiseerumine kujundavad praeguseid võimalusi (lukustumine või üleminek); reeglid ja võrgustikud võivad soodustada või pidurdada muutust.",
+      "Ainult kliendisegmendi kirjeldus"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Schumpeteri innovatsioon ja loominguline häving",
+    "options": [
+      "Innovatsioon lükkab kõrvale vanad tehnoloogiad ja ärimudelid, luues uusi turge ja tootmisviise – majanduse dünaamika tuum.",
+      "Ainult organisatsioonikultuur",
+      "Ainult hinnastrateegia",
+      "Ainult tarneahela logistika"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Institutsionaalsed vs tehnoloogilised muutused",
+    "options": [
+      "Õigusliku riskijuhtimise raamistik",
+      "Ainult väliskeskkond",
+      "Institutsionaalsed (reeglid, normid) loovad stiimulid; tehnoloogilised muudavad tootmisvõimalusi – koos kujundavad arengutrajektoori.",
+      "Ainult kliendisegmendi kirjeldus"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Riiklik innovatsioonisüsteem (Lundvall)",
+    "options": [
+      "Ainult tarneahela logistika",
+      "Riikliku tasandi institutsioonide ja ettevõtete võrgustik, mis soodustab teadmiste loomist, levikut ja kasutust (ülikoolid, uurimisasutused, ettevõtted, valitsus, finantsid).",
+      "Ainult organisatsioonikultuur",
+      "Ainult hinnastrateegia"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Kuidas toimib RIS?",
+    "options": [
+      "Piirkondlikul tasandil ühendab ettevõtted, teadmusasutused, arenduskeskused ja omavalitsused; fookus on kohapõhisel spetsialiseerumisel ja DUI■innovatsioonil.",
+      "Ainult organisatsioonikultuur",
+      "Ainult tarneahela logistika",
+      "Ainult hinnastrateegia"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks Silicon Valley’t ei saa lihtsalt kopeerida?",
+    "options": [
+      "Unikaalne ajalugu, kapitali ja talentide kriitiline mass, kultuur ja turu suurus; kopeerimisel puudub sama ökosüsteemi sügavus ja reeglid.",
+      "Ainult makrokeskkond",
+      "Konkurentsianalüüsi lähenemine",
+      "Õigusliku riskijuhtimise raamistik"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Probleemid eri regiooni tüüpides",
+    "options": [
+      "Keskused: kõrged kulud, konkurents; ääremaad: oskustööjõu nappus, ligipääs; vanad tööstusalad: restruktureerimise raskus ja path dependence.",
+      "Finantsanalüüsi metoodika",
+      "Ainult väliskeskkond",
+      "Hinnastrateegia tüüp"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Bathelt’i „local buzz“",
+    "options": [
+      "Õigusliku riskijuhtimise raamistik",
+      "Ainult mikrokeskkond",
+      "Kohaliku suhtluse ja usaldusvõrgustike tihe „sumin“, mis kiirendab teadmiste levikut ja võimaldab kiiret koostööd ning innovatsiooni.",
+      "Ainult sisekeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Teadmiste levikut soodustavad tegurid",
+    "options": [
+      "Ainult mikrokeskkond",
+      "Tarneahela logistika protsess",
+      "Rahastusinstrumentide loetelu",
+      "Geograafiline lähedus, usaldus ja sotsiaalne kapital, liikuvus (inimeste mobiilsus), ühised projektid ja võrgustikud."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks õppimine toimub eeskätt inimeste tasandil?",
+    "options": [
+      "Rahastusinstrumentide loetelu",
+      "Ainult väliskeskkond",
+      "Institutsioonid ei „õpi“ ilma inimesteta – teadmised luuakse ja liiguvad kontaktide võrgus; seetõttu on võtmeküsimus talentide ja suhtluse toetamine.",
+      "Ainult seadusandlus"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Nutikas spetsialiseerumine ja eristumine",
+    "options": [
+      "Ainult organisatsioonikultuur",
+      "Ainult hinnastrateegia",
+      "Ainult tarneahela logistika",
+      "Kohapõhine lähenemine, mis valib vähesed tugevad valdkonnad, kus on eelis; eristumine aitab koondada ressursse ja suurendada mõju."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Entrepreneurial discovery protsess",
+    "options": [
+      "Ettevõtjate, teadlaste ja avaliku sektori koostöös toimuv iteratiivne avastusprotsess, mis tuvastab uued nišid ja suunab poliitikainstrumente.",
+      "Hinnastrateegia tüüp",
+      "Ainult mikrokeskkond",
+      "Üksnes organisatsioonikultuur"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Ettevõtluse ökosüsteemi elemendid (Isenberg; Mason & Brown)",
+    "options": [
+      "Üksnes organisatsioonikultuur",
+      "Tarneahela logistika protsess",
+      "Inimkapital ja kultuur, turg ja nõudlus, rahastus, toetavad institutsioonid ja reeglid, taristu, võrgustikud ja tugiteenused.",
+      "Ainult makrokeskkond"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kõrgkooli kolm põhifunktsiooni (OECD 2007)",
+    "options": [
+      "Konkurentsianalüüsi lähenemine",
+      "Ainult sisekeskkond",
+      "Ainult mikrokeskkond",
+      "(1) Õpetus ja lõpetajate ettevalmistus; (2) Uurimistöö ja teadmiste loomine; (3) Kolmas missioon – teadmussiire ja regionaalne areng."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kolmik-, nelik- ja viisikheeliks",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Ainult väliskeskkond",
+      "Kolmik: ülikool–ettevõtted–riik; Nelik: + kodanikuühiskond/kogukond; Viisik: + keskkond/loodus – rõhutab kestlikkust ja kaasamist.",
+      "Tarneahela logistika protsess"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Miks kõrgkoolide regionaalne paiknemine on oluline?",
+    "options": [
+      "Ainult seadusandlus",
+      "Tõstab kohaliku inimkapitali taset, toetab ettevõtete DUI■innovatsiooni ja loob tugistruktuure (kolledžid, kompetentsikeskused).",
+      "Õigusliku riskijuhtimise raamistik",
+      "Finantsanalüüsi metoodika"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Regionaalpoliitika peamised eesmärgid Eestis",
+    "options": [
+      "Konkurentsianalüüsi lähenemine",
+      "Vähendada piirkondlikke erinevusi, tõsta tootlikkust ja tööhõivet kogu riigis, tugevdada kohapõhist innovatsiooni ja elukeskkonda.",
+      "Ainult seadusandlus",
+      "Finantsanalüüsi metoodika"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "2014–2020 struktuurivahendite mõju – mis ilmnes?",
+    "options": [
+      "Hinnastrateegia tüüp",
+      "Toetused parandasid taristut ja võimekust, kuid mitmes riigis ning Eestis kasvas keskus■ääremaa lõhe ja süsteem oli killustunud; vaja fokusseerida ja tugevdada seiret.",
+      "Ainult seadusandlus",
+      "Ainult sisekeskkond"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "RISi tõhustamine maakondlikul tasandil",
+    "options": [
+      "Ainult hinnastrateegia",
+      "Ainult tarneahela logistika",
+      "Ainult organisatsioonikultuur",
+      "Luua stabiilse baasrahastusega arenduskeskused, DIH■teenused, mikrokraadide pakkumine, katsetehased, ühisprojektid ja seire KPIdega."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks regionaalpoliitika → regionaalne innovatsioonipoliitika?",
+    "options": [
+      "Sest konkurentsivõime ja sissetulekud sõltuvad üha enam teadmuspõhisusest ja innovatsioonist; pelgalt füüsiline taristu ei piisa.",
+      "Ainult organisatsioonikultuur",
+      "Ainult hinnastrateegia",
+      "Ainult tarneahela logistika"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Eesti ettevõtlusruumid ja keskuste roll",
+    "options": [
+      "Turunduskanali valik",
+      "Eestis on hajusad, kuid keskused koondavad talente, taristut ja võrgustikke; seetõttu on nad innovatsiooni sõlmpunktid.",
+      "Ainult tarnijate haldus",
+      "Rahastusinstrumentide loetelu"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks väikelinnade/maapiirkondade arendamisel on vaja teadmuspõhiseid institutsioone?",
+    "options": [
+      "Ainult seadusandlus",
+      "Hinnastrateegia tüüp",
+      "Rahastusinstrumentide loetelu",
+      "Need toovad oskused, teadmusvõimekuse ja võrgustikud kohale (kolledžid, kompetentsikeskused), mis kompenseerib keskuse kauguse."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Eesti RISi „tuunimise“ põhipakkumised",
+    "options": [
+      "Fokusseerida TAIE fookusvaldkondadele kohalikus võtmes; tugevdada arenduskeskusi stabiilse rahastusega; rakendada DIH■teenused ja innovatsioonihanked; siduda mikrokraadid ettevõtet…",
+      "Ainult tarneahela logistika",
+      "Ainult hinnastrateegia",
+      "Ainult organisatsioonikultuur"
+    ],
+    "correct": 0
+  }
+]
