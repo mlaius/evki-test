@@ -1,63 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
-    <meta charset="UTF-8">
-    <title>EVKI harjutustest</title>
+  <meta charset="UTF-8">
+  <title>EVKI harjutustest</title>
 
-    <!-- Ei taha favicon-faili: kasutame tühja data-URLi, et 404 kaoks -->
-    data:,
+  <!-- Proovime vaikimisi favicon 404 ära hoida ILMA failita -->
+  <!-- 1) tühi data-URL -->
+  data:,
+  <!-- 2) väike inline SVG (brauserid, mis eelistavad ikooni, kasutavad seda) -->
+  <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300A67E'/%3E%3Ctext x='50' y='60' font-size='60' text-anchor='middle' fill='white'%3EE%3C/text%3E%op: 0; }
+    .question {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .question p {
+      margin: 0 0 8px 0;
+      font-weight: bold;
+    }
+    label {
+      display: inline-block;
+      margin: 4px 0;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    /* ÕIGE/VALE märgistuse klassid */
+    .correct { background-color: #c8f7c5; }   /* heleroheline */
+    .incorrect { background-color: #f7c5c5; } /* helepunane */
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.5;
-            padding: 24px;
-        }
-        h1 { margin-top: 0; }
-        .question {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        .question p {
-            margin: 0 0 8px 0;
-            font-weight: bold;
-        }
-        label {
-            display: inline-block;
-            margin: 4px 0;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-right: 8px;
-            cursor: pointer;
-        }
-        /* ÕIGE/VALE märgistuse klassid */
-        .correct { background-color: #c8f7c5; }   /* heleroheline */
-        .incorrect { background-color: #f7c5c5; } /* helepunane */
-
-        #result { font-weight: bold; margin-top: 12px; }
-    </style>
+    #result { font-weight: bold; margin-top: 12px; }
+  </style>
 </head>
 <body>
 
-<h1>EVKI harjutustest</h1>
-<p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või tee uue komplekti jaoks „Tee uus test”.</p>
+  <h1>EVKI harjutustest</h1>
+  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või tee uue komplekti jaoks „Tee uus test”.</p>
 
-<div id="quiz"></div>
+  <div id="quiz"></div>
 
-<button onclick="submitQuiz()">Näita tulemust</button>
-<button onclick="newTest()">Tee uus test</button>
+  <button onclick="submitQuiz()">Näita tulemust</button>
+  <button onclick="newTest()">Tee uus test</button>
 
-<p id="result"></p>
+  <p id="result"></p>
 
-<!-- NB! Hoia script.js samas kaustas; kui on teises kaustas, muuda tee vastavaks -->
-script.js</script>
+  <!-- NB! Hoia script.js samas kaustas; kui on teises kaustas, muuda tee vastavaks -->
+  script.js</script>
 </body>
 </html>
