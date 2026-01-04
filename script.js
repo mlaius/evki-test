@@ -1,4 +1,3 @@
-
 let allQuestions = [];
 let quizQuestions = [];
 
