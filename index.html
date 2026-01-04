@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -12,9 +11,7 @@
       padding: 24px;
       line-height: 1.5;
     }
-    h1 {
-      margin-top: 0;
-    }
+    h1 { margin-top: 0; }
     .question {
       margin-bottom: 20px;
       padding: 10px;
@@ -36,24 +33,16 @@
       margin-right: 8px;
       cursor: pointer;
     }
+    #actions {
+      margin: 12px 0;
+    }
 
     /* Märgistused pärast kontrolli */
-    .correct {
-      background-color: #c8f7c5; /* heleroheline */
-    }
-    .incorrect {
-      background-color: #f7c5c5; /* helepunane */
-    }
-    /* Väike abisti, et disabled-olek oleks visuaalselt selge */
-    input[disabled] + span {
-      opacity: 0.9;
-    }
+    .correct { background-color: #c8f7c5; }   /* heleroheline */
+    .incorrect { background-color: #f7c5c5; } /* helepunane */
 
     /* Tulemus */
-    #result {
-      font-weight: bold;
-      margin-top: 16px;
-    }
+    #result { font-weight: bold; margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -63,12 +52,13 @@
 
   <div id="quiz"></div>
 
-  <button onclick="submitQuiz()">Näita tulemust</button>
-  <button onclick="startQuiz()">Alusta uuesti</button>
+  <div id="actions">
+    <button id="checkBtn" onclick="submitQuiz()">Näita tulemust</button>
+    <button id="newBtn" onclick="newTest()">Tee uus test</button>
+  </div>
 
   <p id="result"></p>
 
-  <!-- Laeme rakendusloogika -->
   script.js</script>
 </body>
 </html>
