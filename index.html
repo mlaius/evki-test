@@ -41,98 +41,18 @@
 <body>
 
   <h1>EVKI harjutustest</h1>
-  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või tee uue komplekti jaoks „Tee uus test”.</p>
+  <p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või uue testi jaoks vajuta „Tee uus test”.</p>
 
   <div id="quiz"></div>
 
-  <button onclick="submitQuiz()">Näita tulemust</button>
-  <button onclick="newTest()">Tee uus test</button>
+  <!-- NUPUD: EI ole onclick atribuutide -->
+  <button id="checkBtn">Näita tulemust</button>
+  <button id="newBtn">Tee uus test</button>
 
   <p id="result"></p>
   <p id="error"></p>
 
-  <!-- INLINE skript: ei vaja eraldi script.js faili -->
-  <script>
-    let allQuestions = [];
-    let quizQuestions = [];
-
-    // Lae JSON; kui ei õnnestu, kasuta fallbacki
-    async function loadQuestions() {
-      const errEl = document.getElementById('error');
-      errEl.textContent = '';
-      try {
-        const res = await fetch('./questions.json?v=' + Date.now());
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const text = await res.text();
-        const data = JSON.parse(text);         // viskab vea, kui JSON on katki
-        if (!Array.isArray(data) || data.length === 0) {
-          throw new Error('Tyhi või vale formaadis JSON');
-        }
-        allQuestions = data;
-      } catch (e) {
-        console.warn('JSON load/parse error:', e);
-        errEl.textContent = 'Hoiatus: questions.json ei laadinud. Kasutan näidisküsimusi.';
-        // Fallback 3 küsimusega, et näeksid kohe töötavat loogikat
-        allQuestions = [
-          {
-            question: 'Mis on ettevõtluskeskkond?',
-            options: [
-              'Ainult ettevõtte sisekeskkond',
-              'Ettevõtet ümbritsev sise- ja välistegurite kogum',
-              'Ainult makrokeskkond',
-              'Ainult seadusandlus'
-            ],
-            correct: 1
-          },
-          {
-            question: 'Mis on PESTLE analüüs?',
-            options: [
-              'Finantsanalüüs',
-              'Turundusanalüüs',
-              'Makrokeskkonna analüüs',
-              'Konkurentsianalüüs'
-            ],
-            correct: 2
-          },
-          {
-            question: 'Millisteks keskkondadeks jaguneb ettevõtluskeskkond?',
-            options: [
-              'Sisekeskkond ja väliskeskkond',
-              'Avalik ja erasektor',
-              'Kohalik ja globaalne',
-              'Tööstus ja teenused'
-            ],
-            correct: 0
-          }
-        ];
-      }
-    }
-
-    function startQuiz() {
-      quizQuestions = shuffleArray(allQuestions).slice(0, 20);
-      renderQuiz();
-      const resultEl = document.getElementById('result');
-      if (resultEl) resultEl.textContent = '';
-    }
-
-    function renderQuiz() {
-      const quizDiv = document.getElementById('quiz');
-      quizDiv.innerHTML = '';
-      quizQuestions.forEach((q, index) => {
-        let html = '<div class="question">';
-        html += '<p><strong>' + (index + 1) + '. ' + escapeHtml(q.question) + '</strong></p>';
-        q.options.forEach((option, i) => {
-          html += `
-            <label>
-              <input type="radio" name="q${index}" value="${i}">
-              ${escapeHtml(option)}
-            </label><br>`;
-        });
-        html += '</div>';
-        quizDiv.innerHTML += html;
-      });
-    }
-
-    function submitQuiz() {
-      let score = 0;
-      quizQuestions.forEach((q, index) => {
+  <!-- Lae rakenduse loogika (hoia script.js samas kaustas kui index.html) -->
+  script.js</script>
+</body>
+</html>
