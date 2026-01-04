@@ -2,19 +2,49 @@
   {
     "question": "Mis on ettevõtluskeskkond?",
     "options": [
-      "Ainult ettevõtte sisekeskkond",
+      "Ettevõtte sisemised ressursid",
+      "Ainult majanduskeskkond",
       "Ettevõtet ümbritsev sise- ja välistegurite kogum",
-      "Ainult makrokeskkond",
       "Ainult seadusandlus"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "question": "Millisteks keskkondadeks jaguneb ettevõtluskeskkond?",
     "options": [
-      "Sisekeskkond ja väliskeskkond",
       "Mikro- ja makrokeskkond",
+      "Sisekeskkond ja väliskeskkond",
       "Avalik ja erasektor",
+      "Kohalik ja globaalne"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Kuidas jaguneb ettevõtte väliskeskkond?",
+    "options": [
+      "Sisekeskkonnaks ja avalikuks",
+      "Majanduslikuks ja poliitiliseks",
+      "Kohalikuks ja rahvusvaheliseks",
+      "Mikro- ja makrokeskkonnaks"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kes kuuluvad ettevõtte mikrokeskkonda?",
+    "options": [
+      "Inflatsioon ja intressimäärad",
+      "Kliendid, hankijad, konkurendid ja regulaatorid",
+      "Demograafilised trendid",
+      "Kliimamuutus"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Kuidas jaguneb ettevõtte makrokeskkond?",
+    "options": [
+      "PESTLE tegurid",
+      "Avalik ja erasektor",
+      "Mikro- ja sisekeskkond",
       "Kohalik ja globaalne"
     ],
     "correct": 0
@@ -22,11 +52,683 @@
   {
     "question": "Mis on PESTLE analüüs?",
     "options": [
+      "Konkurentsianalüüs",
+      "Makrokeskkonna mõjurite analüüs",
       "Finantsanalüüs",
-      "Turundusanalüüs",
-      "Makrokeskkonna analüüs",
-      "Konkurentsianalüüs"
+      "Sisekeskkonna analüüs"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mida analüüsitakse PESTLE analüüsis?",
+    "options": [
+      "Ettevõtte kasumit",
+      "Töötajate rahulolu",
+      "Poliitilisi, majanduslikke, sotsiaalseid, tehnoloogilisi, õiguslikke ja ökoloogilisi tegureid",
+      "Ainult majandust"
     ],
     "correct": 2
+  },
+  {
+    "question": "Kes koostavad Eestis makromajanduslikke prognoose?",
+    "options": [
+      "Eesti Pank ja Rahandusministeerium",
+      "Eraisikud",
+      "Ainult pangad",
+      "Ainult Euroopa Komisjon"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kuidas ettevõtted kasutavad majandusprognoose?",
+    "options": [
+      "Ainult personalijuhtimises",
+      "Ignoreerivad neid",
+      "Stsenaariumipõhises planeerimises",
+      "Ainult maksuarvestuses"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kes kuuluvad ettevõtte sisekeskkonda?",
+    "options": [
+      "Valitsus ja Euroopa Liit",
+      "Kliendid ja konkurendid",
+      "Demograafilised trendid",
+      "Omanikud, juhtkond ja töötajad"
+    ],
+    "correct": 3
+  },
+
+  {
+    "question": "Mis on omanike peamine huvi?",
+    "options": [
+      "Rikkuse maksimeerimine",
+      "Töötajate rahulolu",
+      "Turundus",
+      "Riigi maksutulu"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on juhtkonna peamised huvid?",
+    "options": [
+      "Maksud",
+      "Maine, tasu ja karjäär",
+      "Dividendid",
+      "Seadusandlus"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on agentuurikonflikt?",
+    "options": [
+      "Konkurentide vaheline konflikt",
+      "Turutõrge",
+      "Omanike ja juhtkonna huvide lahknevus",
+      "Likviidsusprobleem"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on SWOT analüüs?",
+    "options": [
+      "Turuanalüüs",
+      "Makrokeskkonna analüüs",
+      "Sisemiste ja väliste tegurite analüüs",
+      "Finantsanalüüs"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Millised on SWOT analüüsi sisemised tegurid?",
+    "options": [
+      "Tugevused ja nõrkused",
+      "Võimalused ja ohud",
+      "Poliitilised tegurid",
+      "Konkurendid"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on ettevõtluse tugisüsteem?",
+    "options": [
+      "Teenuste ja institutsioonide võrgustik ettevõtluse toetamiseks",
+      "Ainult maksusüsteem",
+      "Ainult pangad",
+      "Ainult seadusandlus"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on lisandväärtus?",
+    "options": [
+      "Müügitulu",
+      "Kasum",
+      "Investeering",
+      "Müügitulu miinus vahetarbimine"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks on eksport oluline väikeriigile?",
+    "options": [
+      "Sest see vähendab konkurentsi",
+      "Sest siseturg on suur",
+      "Sest siseturg on väike",
+      "Sest see vähendab tootlikkust"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on innovatsioon?",
+    "options": [
+      "Teadustöö",
+      "Leiutis",
+      "Uute ideede rakendamine väärtuse loomiseks",
+      "Uus idee"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis vahe on leiutisel ja innovatsioonil?",
+    "options": [
+      "Leiutis on idee, innovatsioon on selle rakendamine",
+      "Innovatsioon eelneb leiutisele",
+      "Vahet ei ole",
+      "Leiutis on alati kasumlik"
+    ],
+    "correct": 0
+  },
+
+  {
+    "question": "Mis on eristumine ettevõtluses?",
+    "options": [
+      "Kulude vähendamine",
+      "Tootmise lõpetamine",
+      "Konkurentsieelise loomine",
+      "Hindade langetamine"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on turutõrge?",
+    "options": [
+      "Liigne konkurents",
+      "Olukord, kus turg ei jaota ressursse efektiivselt",
+      "Kasumi kasv",
+      "Turu normaalne toimimine"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mida tähendab Adam Smithi \"nähtamatu käsi\"?",
+    "options": [
+      "Innovatsioonipoliitika",
+      "Maksupoliitika",
+      "Riigi sekkumine",
+      "Turu isereguleerumine"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kuidas erinevad Smithi ja Keynesi vaated?",
+    "options": [
+      "Mõlemad olid samal seisukohal",
+      "Smith pooldas riigi sekkumist",
+      "Keynes pooldas riigi sekkumist majandusse",
+      "Mõlemad pooldasid sekkumist"
+    ],
+    "correct": 2
+  },
+
+  {
+    "question": "Mis on klaster Porteri järgi?",
+    "options": [
+      "Rahvusvaheline organisatsioon",
+      "Ainult idufirmad",
+      "Juhuslik ettevõtete kogum",
+      "Geograafiline ettevõtete ja institutsioonide koondumine"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mis on Schumpeteri loomingiline häving?",
+    "options": [
+      "Innovatsioonist tingitud vanade lahenduste kadumine",
+      "Turutõrge",
+      "Majanduse seiskumine",
+      "Riigi sekkumine"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on ettevõtluse ökosüsteem?",
+    "options": [
+      "Ainult turg",
+      "Ettevõtlust toetavate osapoolte ja tegurite kogum",
+      "Ainult ettevõtted",
+      "Ainult riik"
+    ],
+    "correct": 1
+  },
+
+  {
+    "question": "Mis on Kondratjevi lained?",
+    "options": [
+      "Inflatsioonitsüklid",
+      "Lühiajalised majandustsüklid",
+      "Pikaajalised majandustsüklid",
+      "Hinnatsüklid"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on toote elutsükkel?",
+    "options": [
+      "Ainult kasvufaas",
+      "Juurutus, kasv, küpsus ja langus",
+      "Tootmise aeg",
+      "Ainult müük"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on Porteri rombi üks komponent?",
+    "options": [
+      "Inflatsioon",
+      "Demograafia",
+      "Tootmisfaktorid",
+      "Tollid"
+    ],
+    "correct": 2
+  },
+
+  {
+    "question": "Mis on rajasõltuvus?",
+    "options": [
+      "Varasemate valikute mõju edasisele arengule",
+      "Innovatsiooni puudumine",
+      "Konkurentsipuudus",
+      "Juhuslik areng"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on riiklik innovatsioonisüsteem?",
+    "options": [
+      "Ainult ettevõtted",
+      "Institutsioonide ja ettevõtete koostöövõrgustik",
+      "Ainult riik",
+      "Ainult ülikoolid"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks Silicon Valley’t ei saa lihtsalt kopeerida?",
+    "options": [
+      "Puudub kapital",
+      "Puudub tehnoloogia",
+      "Puudub unikaalne ajalugu ja ökosüsteem",
+      "Puudub riigi tugi"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on nutikas spetsialiseerumine?",
+    "options": [
+      "Ainult eksport",
+      "Kõigi valdkondade arendamine",
+      "Ainult tehnoloogiaarendus",
+      "Fookus vähestele tugevatele valdkondadele"
+    ],
+    "correct": 3
+  },
+
+  {
+    "question": "Mis on ettevõtlusmiljöö?",
+    "options": [
+      "Ainult taristu",
+      "Kohalik institutsionaalne ja sotsiaalne keskkond",
+      "Ainult seadusandlus",
+      "Ainult majanduskeskkond"
+    ],
+    "correct": 1
+  },
+
+  {
+    "question": "Mis on ettevõtlikkus Shapero & Vesperi järgi?",
+    "options": [
+      "Riskide vältimine",
+      "Töötajate juhtimine",
+      "Turuanalüüs",
+      "Võimaluste ärakasutamine uue väärtuse loomiseks"
+    ],
+    "correct": 3
+  },
+
+  {
+    "question": "Miks on väikeettevõtlus oluline?",
+    "options": [
+      "Suurendab hinnataset",
+      "Loob tööhõivet ja paindlikkust",
+      "Asendab suurfirmasid",
+      "Vähendab konkurentsi"
+    ],
+    "correct": 1
+  },
+
+  {
+    "question": "Mis on loomingiline häving Schumpeteri järgi?",
+    "options": [
+      "Majanduslangus",
+      "Innovatsioon, mis asendab vanad lahendused",
+      "Riigi sekkumine",
+      "Turu kokkuvarisemine"
+    ],
+    "correct": 1
+  },
+
+  {
+    "question": "Mis on VOI (välisinvesteering)?",
+    "options": [
+      "Lühiajaline laen",
+      "Finantsinvesteering ilma kontrollita",
+      "Püsiv investeering juhtimiskontrolliga",
+      "Ainult aktsiate ost"
+    ],
+    "correct": 2
+  },
+
+  {
+    "question": "Mis vahe on VOI-l ja portfelliinvesteeringul?",
+    "options": [
+      "VOI annab juhtimiskontrolli",
+      "Portfell annab kontrolli",
+      "Vahet ei ole",
+      "VOI on lühiajaline"
+    ],
+    "correct": 0
   }
 ]
+,
+{
+  "question": "Mis on ettevõtluse roll majanduses?",
+  "options": [
+    "Piirata innovatsiooni",
+    "Luua töökohti ja väärtust",
+    "Vähendada konkurentsi",
+    "Suurendada inflatsiooni"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on tootlikkus?",
+  "options": [
+    "Kasumi suurus",
+    "Müügitulu",
+    "Toodangu ja sisendite suhe",
+    "Töötajate arv"
+  ],
+  "correct": 2
+},
+{
+  "question": "Miks on tootlikkuse kasv oluline?",
+  "options": [
+    "Vähendab konkurentsi",
+    "Suurendab hinnataset",
+    "Vähendab eksporti",
+    "Võimaldab palgakasvu ja heaolu kasvu"
+  ],
+  "correct": 3
+},
+{
+  "question": "Mis on väärtusahel?",
+  "options": [
+    "Ainult logistika",
+    "Etapid, mille kaudu luuakse tootele väärtus",
+    "Ainult tootmine",
+    "Ainult müük"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on globaalne väärtusahel?",
+  "options": [
+    "Ainult eksport",
+    "Rahvusvaheliselt jaotunud tootmisetapid",
+    "Ainult riigisisene tootmine",
+    "Ainult import"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on ettevõtte konkurentsieelis?",
+  "options": [
+    "Suurem töötajate arv",
+    "Suurem maksukoormus",
+    "Ajutine kasum",
+    "Võime pakkuda klientidele suuremat väärtust kui konkurendid"
+  ],
+  "correct": 3
+},
+{
+  "question": "Mis on Porteri viis konkurentsijõudu?",
+  "options": [
+    "Finantsanalüüs",
+    "Konkurentsi intensiivsust mõjutavad tegurid",
+    "Makrokeskkonna analüüs",
+    "Sisekeskkonna analüüs"
+  ],
+  "correct": 1
+},
+{
+  "question": "Milline EI kuulu Porteri viie jõu hulka?",
+  "options": [
+    "Uute tulijate oht",
+    "Asendustoodete oht",
+    "Demograafilised muutused",
+    "Konkurents olemasolevate firmade vahel"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on mastaabiefekt?",
+  "options": [
+    "Kulude vähenemine tootmismahu kasvades",
+    "Innovatsiooni puudumine",
+    "Kulude kasv tootmismahu kasvades",
+    "Kasumi vähenemine"
+  ],
+  "correct": 0
+},
+{
+  "question": "Mis on võrguvälismõju?",
+  "options": [
+    "Turutõrge",
+    "Keskkonnamõju",
+    "Toote väärtus kasvab kasutajate arvu kasvades",
+    "Riigi sekkumine"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on start-up?",
+  "options": [
+    "Kiire kasvu eesmärgiga noor ettevõte",
+    "Avalik-õiguslik asutus",
+    "Mittetulundusühing",
+    "Väljakujunenud ettevõte"
+  ],
+  "correct": 0
+},
+{
+  "question": "Mis on risk ettevõtluses?",
+  "options": [
+    "Kasumi garantii",
+    "Võimalik negatiivne kõrvalekalle oodatust",
+    "Kindel tulemus",
+    "Riigi tugi"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on riskide hajutamine?",
+  "options": [
+    "Riskide ignoreerimine",
+    "Ühe turu kasutamine",
+    "Kulude suurendamine",
+    "Riskide vähendamine mitmekesistamise kaudu"
+  ],
+  "correct": 3
+},
+{
+  "question": "Mis on inimkapital?",
+  "options": [
+    "Loodusressursid",
+    "Masinad ja seadmed",
+    "Töötajate teadmised ja oskused",
+    "Rahalised vahendid"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on sotsiaalne kapital?",
+  "options": [
+    "Usaldus, võrgustikud ja normid ühiskonnas",
+    "Taristu",
+    "Raha",
+    "Tehnoloogia"
+  ],
+  "correct": 0
+},
+{
+  "question": "Mis on institutsioonid majanduses?",
+  "options": [
+    "Ainult pangad",
+    "Reeglid ja organisatsioonid, mis kujundavad käitumist",
+    "Ainult ettevõtted",
+    "Ainult riik"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on formaalsed institutsioonid?",
+  "options": [
+    "Traditsioonid",
+    "Kultuur",
+    "Seadused ja regulatsioonid",
+    "Väärtused"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on mitteformaalsed institutsioonid?",
+  "options": [
+    "Seadused",
+    "Kohtusüsteem",
+    "Maksud",
+    "Kultuur, normid ja väärtused"
+  ],
+  "correct": 3
+},
+{
+  "question": "Miks on institutsioonid ettevõtlusele olulised?",
+  "options": [
+    "Piiravad innovatsiooni",
+    "Mõjutavad tehingukulusid ja usaldust",
+    "Vähendavad konkurentsi",
+    "Suurendavad ebakindlust"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on tehingukulud?",
+  "options": [
+    "Palga kulud",
+    "Tootmiskulud",
+    "Maksud",
+    "Kulud, mis tekivad vahetuse korraldamisel"
+  ],
+  "correct": 3
+},
+{
+  "question": "Mis on informatsiooni asümmeetria?",
+  "options": [
+    "Info puudub",
+    "Riigi sekkumine",
+    "Ühel osapoolel on rohkem infot kui teisel",
+    "Kõigil on sama info"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on moraalne oht?",
+  "options": [
+    "Ebaeetiline käitumine pärast lepingu sõlmimist",
+    "Innovatsioon",
+    "Kulude vähenemine",
+    "Konkurentsi puudumine"
+  ],
+  "correct": 0
+},
+{
+  "question": "Mis on negatiivne välismõju?",
+  "options": [
+    "Kasumi kasv",
+    "Kahju kolmandatele osapooltele",
+    "Kasu ühiskonnale",
+    "Turutõrke puudumine"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on positiivne välismõju?",
+  "options": [
+    "Riigi sekkumine",
+    "Kahju ühiskonnale",
+    "Kasu kolmandatele osapooltele",
+    "Turutõrge"
+  ],
+  "correct": 2
+},
+{
+  "question": "Miks riik sekkub majandusse?",
+  "options": [
+    "Turutõrgete korrigeerimiseks",
+    "Konkurentsi vähendamiseks",
+    "Innovatsiooni piiramiseks",
+    "Kasumi suurendamiseks"
+  ],
+  "correct": 0
+},
+{
+  "question": "Mis on maksude üks eesmärk?",
+  "options": [
+    "Konkurentsi vähendamine",
+    "Avalike teenuste rahastamine",
+    "Innovatsiooni piiramine",
+    "Ekspordi vähendamine"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on ettevõtluspoliitika eesmärk?",
+  "options": [
+    "Ettevõtete arvu vähendamine",
+    "Turutõrgete süvendamine",
+    "Ettevõtluskeskkonna parandamine",
+    "Konkurentsi kaotamine"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on hariduse roll ettevõtluses?",
+  "options": [
+    "Vähendab tootlikkust",
+    "Suurendab inimkapitali",
+    "Asendab ettevõtteid",
+    "Vähendab innovatsiooni"
+  ],
+  "correct": 1
+},
+{
+  "question": "Mis on teadus- ja arendustegevus (T&A)?",
+  "options": [
+    "Ainult tootmine",
+    "Uute teadmiste loomine ja rakendamine",
+    "Ainult turundus",
+    "Ainult müük"
+  ],
+  "correct": 1
+},
+{
+  "question": "Miks on innovatsioon oluline konkurentsis?",
+  "options": [
+    "Vähendab tootlikkust",
+    "Suurendab kulusid",
+    "Loob pikaajalist konkurentsieelist",
+    "Vähendab kasumit"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on teadmusmahukas ettevõtlus?",
+  "options": [
+    "Madala lisandväärtusega tootmine",
+    "Tööjõumahukas tegevus",
+    "Teadmistele ja oskustele tuginev ettevõtlus",
+    "Ainult teenindus"
+  ],
+  "correct": 2
+},
+{
+  "question": "Mis on ettevõtluskeskkonna stabiilsuse tähtsus?",
+  "options": [
+    "Suurendab ebakindlust",
+    "Vähendab investeeringuid",
+    "Soodustab pikaajalisi investeeringuid",
+    "Vähendab ettevõtlust"
+  ],
+  "correct": 2
+}
