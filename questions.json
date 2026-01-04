@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Mis on ettevõtluskeskkond?",
+    "options": [
+      "Ainult ettevõtte sisekeskkond",
+      "Ettevõtet ümbritsev sise- ja välistegurite kogum",
+      "Ainult makrokeskkond",
+      "Ainult seadusandlus"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Millisteks keskkondadeks jaguneb ettevõtluskeskkond?",
+    "options": [
+      "Sisekeskkond ja väliskeskkond",
+      "Mikro- ja makrokeskkond",
+      "Avalik ja erasektor",
+      "Kohalik ja globaalne"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on PESTLE analüüs?",
+    "options": [
+      "Finantsanalüüs",
+      "Turundusanalüüs",
+      "Makrokeskkonna analüüs",
+      "Konkurentsianalüüs"
+    ],
+    "correct": 2
+  }
+]
