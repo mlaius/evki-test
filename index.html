@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>EVKI harjutustest</title>
+
+    <!-- Ei taha favicon-faili: kasutame tühja data-URLi, et 404 kaoks -->
+    data:,
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,9 +16,7 @@
             line-height: 1.5;
             padding: 24px;
         }
-        h1 {
-            margin-top: 0;
-        }
+        h1 { margin-top: 0; }
         .question {
             margin-bottom: 20px;
             padding: 10px;
@@ -36,23 +38,17 @@
             margin-right: 8px;
             cursor: pointer;
         }
-        /* --- ÕIGE/VALE märgistuse klassid --- */
-        .correct {
-            background-color: #c8f7c5; /* heleroheline */
-        }
-        .incorrect {
-            background-color: #f7c5c5; /* helepunane */
-        }
-        #result {
-            font-weight: bold;
-            margin-top: 12px;
-        }
+        /* ÕIGE/VALE märgistuse klassid */
+        .correct { background-color: #c8f7c5; }   /* heleroheline */
+        .incorrect { background-color: #f7c5c5; } /* helepunane */
+
+        #result { font-weight: bold; margin-top: 12px; }
     </style>
 </head>
 <body>
 
 <h1>EVKI harjutustest</h1>
-<p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või uue testi jaoks vajuta „Tee uus test”.</p>
+<p>Testis on 20 juhuslikku küsimust. Vali vastused ja vajuta „Näita tulemust”, või tee uue komplekti jaoks „Tee uus test”.</p>
 
 <div id="quiz"></div>
 
@@ -61,6 +57,7 @@
 
 <p id="result"></p>
 
+<!-- NB! Hoia script.js samas kaustas; kui on teises kaustas, muuda tee vastavaks -->
 script.js</script>
 </body>
 </html>
