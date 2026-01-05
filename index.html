@@ -6,7 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>EVKI harjutustest</title>
   <style>
-    /* Globaalne normaliseerimine: ära skaleeri teksti automaatselt */
+    /* ====== Teemavärvid (CSS muutujad) ====== */
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --border: #cccccc;
+      --correct: #c8f7c5;
+      --incorrect: #f7c5c5;
+      --btn-bg: #f0f0f0;
+      --btn-fg: #111111;
+    }
+    /* Kui süsteem on tumeda eelistusega, kasuta tumeda teema väärtusi */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --fg: #eaeaea;
+        --border: #2a2a2a;
+        --correct: #1f6f43;   /* tumedale sobiv heleroheline toon */
+        --incorrect: #7a2f2f; /* tumedale sobiv helepunane toon */
+        --btn-bg: #1e1e1e;
+        --btn-fg: #eaeaea;
+      }
+    }
+    /* Kui kehal on .dark, sunnime tumeda teema (vaikimisi üle) */
+    body.dark {
+      --bg: #121212;
+      --fg: #eaeaea;
+      --border: #2a2a2a;
+      --correct: #1f6f43;
+      --incorrect: #7a2f2f;
+      --btn-bg: #1e1e1e;
+      --btn-fg: #eaeaea;
+    }
+
+    /* Globaalne normaliseerimine: ära skaleeri teksti automaatselt (Messenger WebView) */
     html, body {
       -webkit-text-size-adjust: 100% !important;
       text-size-adjust: 100% !important;
@@ -19,9 +52,27 @@
       padding: 24px;
       line-height: 1.5;
       font-size: 16px; /* base 16px, aitab vältida iOS autofookuse zoomi */
+      background: var(--bg);
+      color: var(--fg);
     }
     h1 { margin-top: 0; }
-    .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
+
+    /* Ülaala: dark mode lüliti */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .topbar .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .question { margin-bottom: 20px; padding: 10px; border: 1px solid var(--border); border-radius: 6px; }
     .question p { margin: 0 0 8px 0; font-weight: bold; }
 
     /* Ühtlane fondisuurus vastuste jaoks + keelame skaleerimise kindlalt labelitel */
@@ -37,16 +88,40 @@
       word-break: break-word;               /* kui on pikad variandid */
     }
 
-    button { padding: 10px 20px; font-size: 16px; margin-right: 8px; cursor: pointer; }
-    .correct  { background-color: #c8f7c5; } /* heleroheline */
-    .incorrect{ background-color: #f7c5c5; } /* helepunane */
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      margin-right: 8px;
+      cursor: pointer;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    button:focus-visible { outline: 2px solid #4b8bf4; outline-offset: 2px; }
+
+    .correct  { background-color: var(--correct); }
+    .incorrect{ background-color: var(--incorrect); }
     #result { font-weight: bold; margin-top: 12px; }
     #error  { color: #b00020; margin-top: 12px; }
+
+    /* Dark mode lüliti stiil */
+    #themeToggle {
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      border: 1px solid var(--border);
+    }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <h1>EVKI harjutustest</h1>
+    <div class="controls">
+      <!-- Dark mode lüliti -->
+      <button id="themeToggle" title="Vaheta teemat (hele/tume)">Dark mode</button>
+    </div>
+  </div>
 
-  <h1>EVKI harjutustest</h1>
   <p>Siin on 20 juhuslikku küsimust 85st. Vali vastused ja vajuta „Näita tulemust”, uue testi jaoks vajuta „Tee uus test”. Rahu ja edu!</p>
 
   <div id="quiz"></div>
@@ -67,18 +142,61 @@
     // Initsialiseeri kui DOM on valmis
     window.addEventListener('DOMContentLoaded', async () => {
       console.log('EVKI app: DOMContentLoaded');
+
+      // Teema eelistuse taastamine
+      initTheme();
+
+      // Nupud
       document.getElementById('checkBtn').addEventListener('click', submitQuiz);
       document.getElementById('newBtn').addEventListener('click', newTest);
+      document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
       await loadQuestions();
       startQuiz();
     });
 
+    // ====== Dark mode lüliti loogika ======
+    function initTheme() {
+      try {
+        const saved = localStorage.getItem('evki-theme'); // 'dark' | 'light' | null
+        if (saved === 'dark') {
+          document.body.classList.add('dark');
+        } else if (saved === 'light') {
+          document.body.classList.remove('dark');
+        } else {
+          // Kui salvestatud valikut pole, las süsteem otsustab (prefers-color-scheme).
+          // Siin ei muuda midagi: CSS @media määrab vaikimisi värvid.
+        }
+        updateThemeToggleLabel();
+      } catch (e) {
+        console.warn('EVKI app: teema eelistuse lugemine ebaõnnestus', e);
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark');
+      try {
+        localStorage.setItem('evki-theme', isDark ? 'dark' : 'light');
+      } catch (e) {
+        console.warn('EVKI app: teema eelistuse salvestamine ebaõnnestus', e);
+      }
+      updateThemeToggleLabel();
+    }
+
+    function updateThemeToggleLabel() {
+      const btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      const isDark = document.body.classList.contains('dark');
+      btn.textContent = isDark ? 'Light mode' : 'Dark mode';
+      btn.title = isDark ? 'Vaheta hele teema' : 'Vaheta tume teema';
+    }
+
+    // ====== Küsimused & test ======
     async function loadQuestions() {
       const errEl = document.getElementById('error');
       errEl.textContent = '';
       try {
-        const res = await fetch('./questions.json?v=' + Date.now());
+        const res = await fetch('./questions.json?v=' + Date.now()); // cache-busting
         console.log('EVKI app: fetch questions.json status', res.status);
         if (!res.ok) throw new Error('HTTP ' + res.status);
 
@@ -92,6 +210,7 @@
       } catch (e) {
         console.warn('EVKI app: JSON load/parse error:', e);
         errEl.textContent = 'Hoiatus: questions.json ei laadinud. Kasutan näidisküsimusi. (See on OK testimiseks.)';
+        // Fallback – et leht kindlasti toimiks (3 näidisküsimust)
         allQuestions = [
           {
             question: 'Mis on ettevõtluskeskkond?',
@@ -200,7 +319,7 @@
         }
       });
 
-      // Kuvame tulemuse koos protsendiga (ilma ajata)
+      // Kuvame tulemuse koos protsendiga
       const percent = quizQuestions.length > 0
         ? Math.round((score / quizQuestions.length) * 100)
         : 0;
