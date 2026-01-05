@@ -1,225 +1,982 @@
-<!DOCTYPE html>
-<html lang="et">
-<head>
-  <meta charset="UTF-8" />
-  <!-- LISATUD: mobiili korrektne mõõduskaala -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EVKI harjutustest</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; line-height: 1.5; }
-    h1 { margin-top: 0; }
-    .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
-    .question p { margin: 0 0 8px 0; font-weight: bold; }
-
-    /* Ühtlane fondisuurus vastuste jaoks + keelame automaatse skaleerimise mobiilis */
-    label { 
-      display: inline-block; 
-      margin: 4px 0; 
-      padding: 2px 4px; 
-      border-radius: 4px;
-      font-size: 16px;                 /* ühtlane suurus */
-      line-height: 1.4;                 /* stabiilne ridade kõrgus */
-      -webkit-text-size-adjust: 100%;   /* iOS Safari: hoia suurus stabiilsena */
-      text-size-adjust: 100%;           /* teised brauserid */
-      word-break: break-word;           /* vältida laiuse ületamist pikemate sõnadega */
-    }
-
-    button { padding: 10px 20px; font-size: 16px; margin-right: 8px; cursor: pointer; }
-    .correct  { background-color: #c8f7c5; } /* heleroheline */
-    .incorrect{ background-color: #f7c5c5; } /* helepunane */
-    #result { font-weight: bold; margin-top: 12px; }
-    #error  { color: #b00020; margin-top: 12px; }
-  </style>
-</head>
-<body>
-
-  <h1>EVKI harjutustest</h1>
-  <p>Siin on 20 juhuslikku küsimust 85st. Vali vastused ja vajuta „Näita tulemust”, uue testi jaoks vajuta „Tee uus test”. Rahu ja edu!</p>
-
-  <div id="quiz"></div>
-
-  <button id="checkBtn">Näita tulemust</button>
-  <button id="newBtn">Tee uus test</button>
-
-  <p id="result"></p>
-  <p id="error"></p>
-
-  <!-- INLINE skript -->
-  <script>
-    console.log('EVKI app: inline script käivitub');
-
-    let allQuestions = [];
-    let quizQuestions = [];
-
-    // Initsialiseeri kui DOM on valmis
-    window.addEventListener('DOMContentLoaded', async () => {
-      console.log('EVKI app: DOMContentLoaded');
-      // Lisa nupuvajutused JS-ist (väldime HTML onclick)
-      document.getElementById('checkBtn').addEventListener('click', submitQuiz);
-      document.getElementById('newBtn').addEventListener('click', newTest);
-
-      await loadQuestions();
-      startQuiz();
-    });
-
-    async function loadQuestions() {
-      const errEl = document.getElementById('error');
-      errEl.textContent = '';
-      try {
-        // Cache-busting, et GitHub Pages ei annaks vana faili
-        const res = await fetch('./questions.json?v=' + Date.now());
-        console.log('EVKI app: fetch questions.json status', res.status);
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-
-        const text = await res.text();
-        const data = JSON.parse(text); // annab vea kui JSON on katki
-        if (!Array.isArray(data) || data.length === 0) {
-          throw new Error('Tyhi või vale formaadis JSON');
-        }
-        allQuestions = data;
-        console.log('EVKI app: questions.json laaditud, kirjeid:', data.length);
-      } catch (e) {
-        console.warn('EVKI app: JSON load/parse error:', e);
-        errEl.textContent = 'Hoiatus: questions.json ei laadinud. Kasutan näidisküsimusi. (See on OK testimiseks.)';
-        // Fallback – et leht kindlasti toimiks (3 näidisküsimust)
-        allQuestions = [
-          {
-            question: 'Mis on ettevõtluskeskkond?',
-            options: [
-              'Ainult ettevõtte sisekeskkond',
-              'Ettevõtet ümbritsev sise- ja välistegurite kogum',
-              'Ainult makrokeskkond',
-              'Ainult seadusandlus'
-            ],
-            correct: 1
-          },
-          {
-            question: 'Mis on PESTLE analüüs?',
-            options: [
-              'Finantsanalüüs',
-              'Turundusanalüüs',
-              'Makrokeskkonna analüüs',
-              'Konkurentsianalüüs'
-            ],
-            correct: 2
-          },
-          {
-            question: 'Millisteks keskkondadeks jaguneb ettevõtluskeskkond?',
-            options: [
-              'Sisekeskkond ja väliskeskkond',
-              'Avalik ja erasektor',
-              'Kohalik ja globaalne',
-              'Tööstus ja teenused'
-            ],
-            correct: 0
-          }
-        ];
-        console.log('EVKI app: fallback-küsimused kasutusel');
-      }
-    }
-
-    function startQuiz() {
-      quizQuestions = shuffleArray(allQuestions).slice(0, 20);
-      renderQuiz();
-      const resultEl = document.getElementById('result');
-      if (resultEl) resultEl.textContent = '';
-      console.log('EVKI app: startQuiz OK, kuvatakse', quizQuestions.length, 'küsimust');
-    }
-
-    // Vastusevariantide juhuslik järjestus
-    function shuffleOptionsWithCorrectFlag(q) {
-      const pairs = q.options.map((opt, idx) => ({
-        text: opt,
-        isCorrect: idx === q.correct
-      }));
-      const shuffled = shuffleArray(pairs);
-      const correctShuffled = shuffled.findIndex(p => p.isCorrect);
-      return { shuffled, correctShuffled };
-    }
-
-    function renderQuiz() {
-      const quizDiv = document.getElementById('quiz');
-      quizDiv.innerHTML = '';
-
-      quizQuestions.forEach((q, index) => {
-        const { shuffled, correctShuffled } = shuffleOptionsWithCorrectFlag(q);
-        q._shuffledOptions = shuffled;        // [{ text, isCorrect }, ...]
-        q._correctShuffled = correctShuffled; // number
-
-        let html = '<div class="question">';
-        html += '<p><strong>' + (index + 1) + '. ' + escapeHtml(q.question) + '</strong></p>';
-        shuffled.forEach((pair, i) => {
-          html += `
-            <label>
-              <input type="radio" name="q${index}" value="${i}">
-              ${escapeHtml(pair.text)}
-            </label><br>`;
-        });
-        html += '</div>';
-        quizDiv.innerHTML += html;
-      });
-    }
-
-    function submitQuiz() {
-      let score = 0;
-
-      quizQuestions.forEach((q, index) => {
-        const selected = document.querySelector('input[name="q' + index + '"]:checked');
-        const optionInputs = document.querySelectorAll('input[name="q' + index + '"]');
-
-        // Lukusta valikud pärast kontrolli
-        optionInputs.forEach(inp => { inp.disabled = true; });
-
-        const correctIndex = (typeof q._correctShuffled === 'number')
-          ? q._correctShuffled
-          : q.correct;
-
-        const correctInput = document.querySelector('input[name="q' + index + '"][value="' + correctIndex + '"]');
-        if (correctInput) {
-          const correctLabel = correctInput.closest('label');
-          if (correctLabel) correctLabel.classList.add('correct');
-        }
-
-        if (selected) {
-          const selectedIndex = Number(selected.value);
-          if (selectedIndex === correctIndex) {
-            score++;
-          } else {
-            const wrongLabel = selected.closest('label');
-            if (wrongLabel) wrongLabel.classList.add('incorrect');
-          }
-        }
-      });
-
-      document.getElementById('result').innerText =
-        'Tulemus: ' + score + ' / ' + quizQuestions.length;
-    }
-
-    function newTest() {
-      startQuiz();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function shuffleArray(arr) {
-      const a = arr.slice();
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    }
-
-    function escapeHtml(str) {
-      return String(str)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
-    }
-
-    window.submitQuiz = submitQuiz;
-    window.newTest = newTest;
-  </script>
-</body>
-</html>
+[
+  {
+    "question": "Mis on ettevõtluskeskkond?",
+    "options": [
+      "See on keerukas, muutlik ja interaktiivne väliste mõjutajate taustsüsteem, milles ettevõte muudab ressursse (sisendeid) väljunditeks (tooted/teenused).",
+      "Ettevõtte sise-eeskirjade ja töölepingute kogum, mis määrab töötajate igapäevased ülesanded.",
+      "Riiklik institutsioonide süsteem, mis tegeleb ainult maksude kogumise ja auditeerimisega.",
+      "Operatiivtasandi töövõte, millega reguleeritakse üksnes tarnijate ja hankijate vahelisi suhteid."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Millisteks keskkondadeks jaguneb ettevõtluskeskkond?",
+    "options": [
+      "Kohalikuks ja rahvusvaheliseks turunduskeskkonnaks.",
+      "See jaguneb väliskeskkonnaks ja sisekeskkonnaks.",
+      "Poliitiliseks ja õiguslikuks raamistikuks, mis välistab majanduslikud tegurid.",
+      "Strateegiliseks ja taktiliseks planeerimistasandiks vastavalt omanike soovile."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Kuidas jaguneb ettevõtte väliskeskkond?",
+    "options": [
+      "Tugevusteks ja nõrkusteks vastavalt SWOT-analüüsi metoodikale.",
+      "Eksportturgudeks ja kodumaiseks tarbijaskonnaks.",
+      "Väliskeskkond jaguneb mikrokeskkonnaks (operatiivne) ja makrokeskkonnaks (kontekstuaalne).",
+      "Ainult PESTLE analüüsis toodud tehnoloogilisteks ja sotsiaalseteks teguriteks."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kes kuuluvad ettevõtte mikrokeskkonda?",
+    "options": [
+      "Omanikud, juhtkond ja ettevõtte sisesed spetsialistid.",
+      "Valitsus, rahvusvahelised organisatsioonid ja globaalsed trendid.",
+      "Ainult pikaajalised koostööpartnerid ja riskikapitalistid.",
+      "Kliendid, tarnijad, konkurendid, koostööpartnerid, regulaatorid ja kreeditorid."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kuidas jaguneb ettevõtte makrokeskkond?",
+    "options": [
+      "Makrokeskkond jaguneb poliitiliseks, majanduslikuks, sotsiaalseks, tehnoloogiliseks, õiguslikuks ja ökoloogiliseks keskkonnaks.",
+      "Tarnijateks, klientideks ja regulaatoriteks, kes mõjutavad otsest tegevust.",
+      "Finantsressurssideks, inimkapitaliks ja tehnoloogiliseks baasiks.",
+      "Ainult siseriiklikeks poliitilisteks otsusteks ja maksumuudatusteks."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on PESTLE analüüs?",
+    "options": [
+      "Meetod, millega hinnatakse üksnes sisekeskkonna tugevusi ja nõrkusi.",
+      "See on strateegilise juhtimise meetod makrokeskkonna analüüsimiseks kuue faktori (Poliitika, Majandus, Sotsiaalsia, Tehnoloogia, Õigus, Ökoloogia) lõikes.",
+      "Tööriist, mida kasutatakse ainult konkurentide turuosa mõõtmiseks.",
+      "Finantsanalüüsi vorm, mis keskendub ettevõtte kasumi ja kulude suhtele."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse ettevõtte poliitilises keskkonnas?",
+    "options": [
+      "Tarbijate haridustaset ja demograafilisi muutujaid piirkonnas.",
+      "Uurimis- ja arenduskulude osakaalu ettevõtte eelarves.",
+      "Valitsuse otsused, maksud, geopoliitika.",
+      "Pangaautomaatide võrgustikku ja sularaha liikumist majanduses."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse ettevõtte majanduslikus keskkonnas?",
+    "options": [
+      "Töötervishoiu ja ohutuse eeskirjade täitmist sisekeskkonnas.",
+      "Uute patentide ja intellektuaalomandi kaitset rahvusvahelisel tasandil.",
+      "Loodusressursside nappust ja saastamisega seotud makse.",
+      "Majanduslik: Majanduskasv, inflatsioon, tööjõuturg, intressid."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse ettevõtte sotsiaalses keskkonnas?",
+    "options": [
+      "Demograafia, kultuur, tarbijakäitumine.",
+      "Valitsuse koalitsioonilepingut ja poliitilisi liite.",
+      "Valuutakursside kõikumist ja keskmist palka.",
+      "Konkurentide logistilisi ahelaid ja tarneaegu."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse ettevõtte tehnoloogilises keskkonnas?",
+    "options": [
+      "Töölepingu seaduse ja konkurentsiseaduse muudatusi.",
+      "Innovatsioon, digitaliseerimine, AI, T&A kulud.",
+      "Maksusüsteemi stabiilsust ja tolliformaalsusi.",
+      "Jäätmekäitlust ja toodete pakendamise eeskirju."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse ettevõtte õiguslikus keskkonnas?",
+    "options": [
+      "Töötajate motivatsioonisüsteemi ja juhtimisstiili.",
+      "Inimeste elulaadi ja sotsiaalset kihistumist.",
+      "Seadused (nt võlaõigus, konkurentsiseadus).",
+      "Investeeringute tasuvusanalüüsi ja riskikapitali."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mida peamiselt analüüsitakse ettevõtte ökoloogilises keskkonnas?",
+    "options": [
+      "Tarnijate maksevõimet ja logistilist stabiilsust.",
+      "Uute sihtturgude ostujõudu ja segmentimist.",
+      "Sotsiaalmeedia trende ja brändi tuntust.",
+      "Loodusressursid, kliimamuutused, jätkusuutlikkus."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mis organisatsioonid on Eestis peamised makromajanduslike prognooside tegijad ja kui täpselt nad viimasel ajal prognoose teinud on?",
+    "options": [
+      "Peamised tegijad on Rahandusministeerium, Eesti Pank ja kommertspangad (nt Swedbank, SEB); allikate kohaselt hinnatakse nende täpsust jooksvalt prognooside ja tegelikkuse võrdluses.",
+      "Ainult Riigikogu majanduskomisjon ja kohalikud omavalitsused.",
+      "Maksu- ja Tolliamet koostöös rahvusvaheliste audiitoritega.",
+      "Eesti Kaubandus-Tööstuskoda ja eraviisilised konsultatsioonifirmad."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kuidas ettevõtted saavad arvestada oma töös makromajanduslikke prognoose?",
+    "options": [
+      "Ainult igapäevaste kulude ja arvete maksmisel ilma strateegilise vaateta.",
+      "Prognoose kasutatakse investeerimisotsuste tegemiseks, palgaplaneerimiseks ja nõudluse hindamiseks.",
+      "Kasutatakse üksnes uute töötajate värbamisel katseajaga.",
+      "Need ei oma tähtsust, kuna väliskeskkond on liiga turbulentne."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on tarnijate peamised huvid?",
+    "options": [
+      "Konkurendi strateegia kopeerimine ja turuosa võitmine.",
+      "Riiklike toetuste ja subsiidiumide maksimaalne saamine.",
+      "Hanke stabiilsus ja kliendi maksevõime.",
+      "Loodusressursside säästlik kasutamine ja rohepööre."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on klientide peamised huvid?",
+    "options": [
+      "Investeeringute tootlus ja dividendide väljamaksmine.",
+      "Regulatsioonide täpne täitmine ja auditeerimine.",
+      "Töötajate koolitamine ja sisekommunikatsioon.",
+      "Kvaliteedi ja hinna suhe."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mis on kreeditoride peamised huvid?",
+    "options": [
+      "Intressitulu ja tagatised.",
+      "Ettevõtte sotsiaalne vastutus ja mainekujundus.",
+      "Uute toodete leiutamine ja patenteerimine.",
+      "Tarnijatega sõlmitud pikaajalised lepingud."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on koostööpartnerite peamised huvid?",
+    "options": [
+      "Ainult lühiajaline rahaline kasum ilma võrgustiketa.",
+      "Materiaalne ja mittemateriaalne kasu võrgustikest.",
+      "Poliitiline stabiilsus ja maksumuudatuste vältimine.",
+      "Maksude optimeerimine ja fiskaalpoliitiline mõju."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on konkurentide peamised huvid?",
+    "options": [
+      "Teiste ettevõtete abistamine kriisiolukordades.",
+      "Tarnijate hanke stabiilsuse tagamine konkurendile.",
+      "Konkurentsieelised ja turuosa.",
+      "Regulaatorite poolt kehtestatud nõuete karmistamine."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on regulaatorite peamised huvid?",
+    "options": [
+      "Omanike rikkuse maksimeerimine igal juhul.",
+      "Töötajate palgasurve suurendamine turul.",
+      "Uute tehnoloogiate kiire ja piiranguteta testimine.",
+      "Tegevuse vastavus reeglitele."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kes on ettevõtte sisekeskkonna huvigrupid?",
+    "options": [
+      "Omanikud, juhtkond ja töötajad.",
+      "Kliendid, tarnijad ja konkurendid.",
+      "Regulaatorid, pangad ja koostööpartnerid.",
+      "Poliitilised liidrid ja kohalik kogukond."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on omanike huvid?",
+    "options": [
+      "Soodne hind ja parim teenindus kliendina.",
+      "Rikkuse maksimeerimine, dividendid ja otsustusvabadus.",
+      "Puhkusepäevade arvu suurendamine ettevõttes.",
+      "Konkurentide tegevuse juriidiline piiramine."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on juhtkonna huvid?",
+    "options": [
+      "Ainult pangaautomaatide võrgustiku laiendamine.",
+      "Töötajate sotsiaalmaksu suuruse vähendamine.",
+      "Eneseteostus, tunnustus, võim, palk ja otsustusvabadus.",
+      "Välisinvesteeringute täielik vältimine."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on töötajate huvid?",
+    "options": [
+      "Pidev riskimine ja ebakindlus tuleviku suhtes.",
+      "Ettevõtte strateegiliste partnerluste loomine.",
+      "Ainult omanike rikkuse maksimeerimine.",
+      "Sissetulek, töötingimused, sotsiaalne kindlustus ja tunnustus."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Millised probleemid võivad esineda, kui juhtkond pole omanike ringis?",
+    "options": [
+      "Võib tekkida agentuurikonflikt, kus juhi ja omaniku eesmärgid ei kattu.",
+      "Ettevõte kaotab automaatselt kõik oma kliendid.",
+      "Maksusüsteem muutub ettevõtte jaoks ebasoodsamaks.",
+      "Väliskeskkonna analüüs muutub võimatuks."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on SWOT analüüs?",
+    "options": [
+      "Meetod, millega prognoositakse riigi majanduskasvu kümneks aastaks.",
+      "See on analüüsivahend ettevõtte sisefaktorite (tugevused, nõrkused) ja välisfaktorite (võimalused, ohud) hindamiseks.",
+      "Turundusplaan, mis keskendub ainult sotsiaalmeedia reklaamile.",
+      "Sisekontrolli süsteem, mis jälgib töötajate tööaega."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Kuidas seostub SWOT analüüs PESTLE analüüsiga?",
+    "options": [
+      "Need on kaks teineteist täielikult välistavat meetodit.",
+      "SWOT on sisekeskkonna ja PESTLE on vaid personalianalüüs.",
+      "Välimised võimalused ja ohud tuletatakse otseselt PESTLE ja mikrokeskkonna analüüsist.",
+      "PESTLE analüüs on SWOT analüüsi üks osa sisefaktorite all."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on SWOT analüüsis sisemised ja mis välimised tegurid?",
+    "options": [
+      "Sisemised on poliitika ja majandus; välimised on inimesed.",
+      "Sisemised on võimalused ja ohud; välimised on tugevused.",
+      "Kõik tegurid on välimised ja alluvad turujõududele.",
+      "Sisemised on tugevused ja nõrkused; välimised on võimalused ja ohud."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Tooge näiteid sisemistest tugevustest/nõrkustest.",
+    "options": [
+      "Tugevus: Kompetentne personal; Nõrkus: Halb juhtimine.",
+      "Tugevus: Kasvav nõudlus; Nõrkus: Tugev konkurents.",
+      "Tugevus: Rohepööre; Nõrkus: Maksude tõus.",
+      "Tugevus: Uus taristu; Nõrkus: Geopoliitiline kriis."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Tooge näiteid välimistest ohtudest/võimalustest.",
+    "options": [
+      "Võimalus: Head juhid; Oht: Madal kvalifikatsioon.",
+      "Võimalus: Kasvav nõudlus; Oht: Tugev konkurents.",
+      "Võimalus: Hea finantsseis; Oht: Halb turundus.",
+      "Võimalus: Sobivad ruumid; Oht: Vananenud tehnika."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on ettevõtluse tugisüsteem?",
+    "options": [
+      "Pankade ja finantsasutuste kogum, mis jagab ainult laene.",
+      "Sisekontrolli mehhanism, mis takistab vigade tekkimist tootmises.",
+      "See on erinevate teenuste kogum, mis ühendab pakkumise ja nõudluse ettevõtluse kui protsessi toetamiseks.",
+      "Valitsuse programm, mis on suunatud ainult suurettevõtetele."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on ettevõtluse tugisüsteemi eesmärk Eestis?",
+    "options": [
+      "Vähendada ettevõtjate arvu ja koondada turg suurkorporatsioonidele.",
+      "Maksude kogumise tõhustamine ja järelevalve suurendamine.",
+      "Ainult rahvusvahelise diplomaatilise toetuse pakkumine suurtele RVE-dele.",
+      "Saavutada püsiv majanduskasv ja sotsiaalne stabiilsus konkurentsivõime tugevdamise kaudu."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Millised on peamised institutsioonid Eestis, mis pakuvad riiklikke toetusi ja teenuseid?",
+    "options": [
+      "EIS (Ettevõtluse ja Innovatsiooni SA), MES, KIK, RTK, Töötukassa, PRIA ja MAKid.",
+      "Statistikaamet, Riigikohus ja Eesti Pank.",
+      "Ainult kommertspangad nagu Swedbank ja SEB.",
+      "Rahandusministeerium ja Maksu- ja Tolliamet."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Majanduse areng ja selleks vajalikud eeldused.",
+    "options": [
+      "Vajalik on ainult odav tööjõud ja riiklikud subsiidiumid.",
+      "Vajalikud on ettevõtete vajadustele vastav haridus, toimiv tööjõuturg, taristu, kapitaliturg ja turutõrgete lahendamine.",
+      "Piisab vaid soodsast geopoliitilisest asukohast ilma taristuta.",
+      "Eeldused puuduvad, majandus areneb iseenesest turujõudude mõjul."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Eesti majanduse tugevused.",
+    "options": [
+      "Suur sise-turg ja piiramatud loodusressursid.",
+      "Väga madalad tööjõukulud ja protektsionistlik poliitika.",
+      "Madal korruptsioon, kõrge vabadus, tõhusad institutsioonid.",
+      "Kõrge tollimaksude tase importkaubale."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Eesti majanduse nõrkused.",
+    "options": [
+      "Liiga suur tegevusvabadus ja madal korruptsioonitase.",
+      "Tugevad institutsioonid ja liigne orienteeritus ekspordile.",
+      "Energiahindade liigne madalus ja tööjõu üleküllus.",
+      "Väike turg, inimeste nappus, raugenud majanduskasv."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Eesti majanduse väljakutsed.",
+    "options": [
+      "Rohepööre, tööjõupuudus, kallis energia.",
+      "Linnastumise peatamine ja sündimuse järsk kasv.",
+      "Välisinvesteeringute liigne sissevool ja inflatsiooni puudumine.",
+      "Turu täielik isoleerimine naaberriikidest."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks on tähtsad eksport ja välisinvesteeringud?",
+    "options": [
+      "Need aitavad hoida majandust suletuna ja iseseisvana.",
+      "Eksport toob raha väikeselt turult välja; investeeringud toovad kapitali, uusi seadmeid ja teadmust (know-how).",
+      "Investeeringud on vajalikud ainult riigieelarve defitsiidi katmiseks.",
+      "Eksport on oluline ainult põllumajandussektoris."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Majanduses loodava lisandväärtuse olemus ja tähtsus.",
+    "options": [
+      "See on toote lõpphind ilma tootmiskuludeta.",
+      "Tegemist on riikliku toetusega, mida makstakse kõigile töötajatele.",
+      "Lisandväärtus on tootele protsessi käigus lisanduv väärtus, mis peegeldub hinna kasvus ja katab tööjõukulud ning kasumi; see on riigi eksisteerimise alus.",
+      "See on jaemüüja poolt lisatav marginaal, mis ei mõjuta riigi majandust."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Ettevõte koha muutmine väärtusahelas.",
+    "options": [
+      "Ettevõtte juriidilise aadressi kolimine maksuvabasse piirkonda.",
+      "Ainult tootmismahtude suurendamine ilma tootearenduseta.",
+      "Tarnijate vahetamine soodsamate vastu teistes riikides.",
+      "Liikumine tootmiselt arenduse, disaini ja turunduse suunas, et tõsta lisandväärtust (Shih kõver)."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kohalik ettevõtluskeskkond ja ettevõtjate ootused sellele.",
+    "options": [
+      "Oodatakse elutähtsaid teenuseid (teed, transport), infovahetust planeeringutest ja avaliku teenuse kvaliteeti.",
+      "Ettevõtjad ootavad riigilt konkurentide täielikku keelustamist.",
+      "Ootused piirduvad vaid rahaliste otsetoetustega ilma teenusteta.",
+      "KOV-ilt oodatakse ettevõtte siseauditite läbiviimist."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Ettevõtluse hindamine ja toetamine kohalikus omavalitsuses.",
+    "options": [
+      "Hinnatakse ainult läbi makstud trahvide summa.",
+      "Toimub läbi strateegiliste dokumentide, ettevõtlusspetsialistide olemasolu ja ümarlaudade korraldamise.",
+      "Toetus tähendab kõigi kohalike ettevõtete riigistamist.",
+      "KOV-il puudub igasugune roll ettevõtluse toetamisel."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Regionaalse innovatsioonisüsteemi ja konkurentsivõime mudel.",
+    "options": [
+      "Süsteem põhineb ainult odaval toormaterjalil ja maavaradel.",
+      "Mudel tugineb üksnes välisturgude piiramisele ja tollidele.",
+      "Süsteem põhineb inimkapitalil, võrgustumisel, võtmesektorite arendamisel ja taristul.",
+      "Põhineb pikaajalisel isoleeritusel ja sisekaubandusel."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Välisturunduse strateegia ja selle osad.",
+    "options": [
+      "Strateegia koosneb ainult kodulehe tõlkimisest võõrkeelde.",
+      "Peamine osa on siseauditi teostamine ja kuluaruandlus.",
+      "See on suunatud üksnes kohalikele tarbijatele.",
+      "Osad on turu-uuring, sihtgrupi valik, turule sisenemise kanalid ja väärtuspakkumise positsioneerimine."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Turu konkurentsianalüüs ja selle osad.",
+    "options": [
+      "Analüüsitakse konkurentide profiili, tooteid, müügiargumente ja kasutusel olevaid kanaleid.",
+      "Uuritakse ainult konkurentide töötajate perekonnaseisu.",
+      "Analüüs piirdub konkurentide asukoha leidmisega kaardil.",
+      "Hinnatakse ainult maailmaturu toorme hindade liikumist."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Innovatsiooni mõiste, eesmärgid ja liigid.",
+    "options": [
+      "Olemasoleva toote hinna tõstmine ilma muudatusteta.",
+      "See on uue või täiustatud toote/protsessi edukas turule toomine. Liigid: toote-, protsessi-, organisatsiooniline ja turundusinnovatsioon.",
+      "Ainult teaduslik avastus, mis ei jõua kunagi turule.",
+      "Rohkemate töötajate palkamine samasse tootmisprotsessi."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Innovatsiooniprotsess kui konkurentsivõime.",
+    "options": [
+      "Innovatsioon pärsib tegelikult ettevõtte kasvu.",
+      "See on oluline ainult suurte rahvusvaheliste korporatsioonide jaoks.",
+      "Innovatsioon on peamine võtmetegur, mis võimaldab ettevõtetel püsida eksportturgudel läbilöögivõimelisena.",
+      "Innovatsiooniprotsess on vajalik vaid maksusoodustuste saamiseks."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Leiutis vs innovatsioon.",
+    "options": [
+      "Vahet ei ole, mõlemad tähendavad täpselt sama asja.",
+      "Leiutis on alati kasumlik, innovatsioon aga riskantne.",
+      "Innovatsioon toimub ainult tehases, leiutis aga laboris.",
+      "Leiutis on idee esmailmnemine; innovatsioon on selle esimene edukas praktiline rakendamine turul."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Eristumine ettevõtluses ja selle olulisus.",
+    "options": [
+      "Eristumine (toote, teeninduse või hinna kaudu) võimaldab vältida otsest konkurentsi ja saavutada edu.",
+      "Eristumine on liiga kallis ja seda peaks vältima.",
+      "Tähtis on olla täpselt samasugune kui turuliider.",
+      "Eristumine on vajalik ainult jaekaubanduses."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Ettevõtte juhtimise põhimõtted püsimaks rahvusvahelises konkurentsis.",
+    "options": [
+      "Piisab ainult kohaliku turu ja keele tundmisest.",
+      "Vajalik on tunda maailmaturu nõudlust, kohandada uusi tehnoloogiaid ja käivitada pidev õppimisprotsess.",
+      "Välisinvesteeringute vältimine ja omakapitali hoidmine.",
+      "Juhtimine peab olema rangelt tsentraliseeritud ja muutumatu."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Millised on peamised turutõrked, mida riik peab turumajanduses leevendama?",
+    "options": [
+      "Liiga madalad hinnad ja liiga suur klientide rahulolu.",
+      "Uute ettevõtete sisenemine turule ja vaba konkurents.",
+      "Konkurentsitõrked, avalikud hüved (haridus), välismõjud (saastamine), infotõrked (lemon market) ja tööpuudus.",
+      "Omanike liigne rikkus ja kasumi väljaviimine riigist."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Selgita Adam Smithi mõistet „nähtamatu käsi“ ja kuidas see seostub tööjaotusega.",
+    "options": [
+      "Riigi otsene ja nähtamatu sekkumine kõigisse äriprotsessidesse.",
+      "Ametiühingute kontroll, mis suunab majandust õiges suunas.",
+      "Tööjaotuse piiramine, et hoida ära turu laienemine.",
+      "Indiviid, tegutsedes oma kasu nimel, edendab ühiskonna huve läbi turujõudude; tööjaotus aga soodustab turu laienemist."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mille poolest erinevad Adam Smithi ja John Maynard Keynesi arusaamad riigi rollist majanduses?",
+    "options": [
+      "Smith pooldas minimaalset sekkumist (vaba turg); Keynes aga riigi aktiivset sekkumist majanduse stabiliseerimiseks.",
+      "Neil ei olnudki mingeid sisulisi erinevusi vaadetes.",
+      "Keynes pooldas vaba turgu ja Smith riiklikku plaanimajandust.",
+      "Mõlemad pooldasid merkantilismi ja ekspordi keelustamist."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on „lemon market“ ja miks tekib infotõrge?",
+    "options": [
+      "Turg, kus müüakse ainult kvaliteetset ja kontrollitud toodangut.",
+      "See on olukord, kus info ebasümmeetria (müüja teab rohkem kui ostja) tõttu langeb turu kvaliteet.",
+      "Olukord, kus turul on liiga palju informatsiooni tarbijale.",
+      "Põllumajandusturg, mis tegeleb ainult tsitrusviljade impordiga."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Kuidas on omavahel seotud eraomandi kaitse ja ettevõtlusvabadus Locke’i teoorias?",
+    "options": [
+      "Eraomandi kaitse takistab tegelikult isiku motivatsiooni töötada.",
+      "Locke ei pidanud eraomandi kaitset majanduskasvuga seotuks.",
+      "Et inimene säilitaks motivatsiooni töötada, peavad tema tulemused olema õiguslikult kaitstud; eraomand on liberalismi nurgakivi.",
+      "Riik peab omama kogu vara, et tagada ettevõtlusvabadus."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Iseloomusta reguleerivat turumajandusriiki ja turumajanduslikku arendusriiki.",
+    "options": [
+      "Reguleeriv riik on passiivne ja arendusriik on veelgi passiivsem.",
+      "Arendusriik keelab eraomandi, reguleeriv riik aga soosib seda.",
+      "Reguleeriv riik suunab turgu ja arendusriik toimib vaid öövahina.",
+      "Reguleeriv riik on \"öövaht\" (raamistik, taristu); arendusriik teostab aktiivset struktuuripoliitikat ja suunab turgu."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Millised on arendusriigi tunnused (Dicken)?",
+    "options": [
+      "Struktuuripoliitika teostamine, oma eraomandi toetamine ja majandusbürokraatia hoidmine poliitikast lahus.",
+      "Kõigi ettevõtete riigistamine ja plaanimajanduse kehtestamine.",
+      "Välisinvesteeringute vältimine ja tollide järsk tõstmine.",
+      "Ainult sotsiaalhoolekande süsteemi arendamine ilma majanduseta."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks on oluline hoida lahus majandusbürokraatia ja poliitiline juhtimine?",
+    "options": [
+      "See suurendab bürokraatiat ja muudab otsustamise aeglaseks.",
+      "See tagab riigi poliitilise stabiilsuse ja järjepidevuse majandusotsustes.",
+      "Selleks, et poliitikud saaksid otseselt turgu suunata.",
+      "Puudub igasugune seos poliitilise stabiilsusega."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Too näiteid poliitikaid, millega turumajanduslik arendusriik oma ettevõtteid toetab.",
+    "options": [
+      "Kõrgete maksude kehtestamine edukatele siseettevõtetele.",
+      "Importkaupadele subsiidiumide jagamine.",
+      "Investeeringud T&Asse, eksporditoetused ja institutsioonide loomine konsultatsioonideks.",
+      "Tööjõu vaba liikumise piiramine siseriiklikult."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Millised ühishuvid seovad riike ja ettevõtteid?",
+    "options": [
+      "Riigid soovivad makse tõsta ja ettevõtted neid vältida.",
+      "Mõlemad soovivad vältida tehnoloogilist arengut.",
+      "Ühishuvi puudub, nad on alati vastandlikud pooled.",
+      "Riigid vajavad töökohti ja makse; ettevõtted vajavad taristut, turvalisust ja kvaliteetset tööjõudu."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mis on rahvusvaheline tootmisvõrgustik?",
+    "options": [
+      "See on vastastikuses mõjus olevate tootmise, jaotamise ja tarbimise suhete süsteem, mida juhivad rahvusvahelised ettevõtted.",
+      "Ühe riigi sisene tarneahel ilma välissuheteta.",
+      "Süsteem, mis keelab kaupade liikumise üle piiri.",
+      "Ainult veebipõhine müügivõrgustik kodumaisele kliendile."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Miks ettevõtted rahvusvahelistuvad – too välja peamised motivatsioonid.",
+    "options": [
+      "Ainult soov vältida kodumaiseid maksuseadusi.",
+      "Turgudele orienteeritus (laienemine suurtele turgudele) ja varadele orienteeritus (loodusvarad, teadmised, odav tööjõud).",
+      "Valitsuse otsene käsk laieneda välisturgudele.",
+      "Igavus koduturul ja liigne vaba kapital."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis eristab välismaiseid otseinvesteeringuid (VOI) portfelliinvesteeringutest?",
+    "options": [
+      "Portfelliinvesteering on alati suurema mahuga ja pikaajalisem.",
+      "VOI on lühiajaline finantsülesanne ilma kontrollita.",
+      "VOI loob pikaajalise suhte ja annab investorile juhtimiskontrolli.",
+      "Puudub sisuline erinevus, mõlemad on lühiajalised."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Milline on riikide ja rahvusvaheliste ettevõtete vaheline läbirääkimisloogika?",
+    "options": [
+      "Riik nõuab makse ja ettevõte keeldub neid maksmast.",
+      "Tegemist on poliitilise survega ilma majandusliku sisuta.",
+      "Ettevõtted alluvad tingimusteta riigi ettekirjutustele.",
+      "See on ressursside ja turulepääsu vahetus; riik pakub soodsat keskkonda vastutasuna töökohtadele."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Kuidas võivad tollid ja mittetariifsed piirangud mõjutada kodumaist tootmist?",
+    "options": [
+      "Tollid tõstavad impordi hinda ja kaitsevad kodumaist tööhõivet; mittetariifsed piirangud (kvoodid) piiravad koguseid.",
+      "Tollid muudavad importkauba kodumaisele tarbijale odavamaks.",
+      "Need ei oma mingit mõju kodumaisele tootmisele.",
+      "Tollid vähendavad eksporti ja suurendavad importi."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kuidas defineerivad ettevõtlikkust Shapero ja Vesper?",
+    "options": [
+      "Ettevõtlikkus on pelgalt reeglite järgimine ja stabiilsus.",
+      "Shapero: Initsiatiivikus ja riski aktsepteerimine; Vesper: Ressursside kasutamine suurema väärtuse loomiseks.",
+      "Nad peavad seda üksnes akadeemiliseks mõisteks ilma praktikata.",
+      "Ettevõtlikkus tähendab ainult teiste töötajate juhtimist."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks on väikeettevõtlus riigi majandusele vajalik?",
+    "options": [
+      "See on vajalik ainult suurte monopolide tekkimiseks.",
+      "Et riik saaks koguda rohkem trahve ja menetlustasusid.",
+      "Innovatsiooni levikuks, töökohtade loojaks ja majanduse paindlikkuse suurendamiseks.",
+      "Väikeettevõtlus ei ole tegelikult majandusele vajalik."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Too näiteid riigi poolt ettevõtluse aktiviseerimise võimalustest.",
+    "options": [
+      "Maksude järsk tõstmine ja sisenemisbarjääride loomine.",
+      "Investeeringute keelustamine ja konkurentsi piiramine.",
+      "Riigiasutuste koondamine ainult pealinna.",
+      "Majandusõpe koolis, taristu tagamine ja arenguagentuuride loomine."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Millised tegurid soodustavad ettevõtlusaktiivsuse kasvu?",
+    "options": [
+      "Sissetulekute kasv, tehnoloogiavahetus ja hariduslik ettevalmistus.",
+      "Majandussurutis ja madal haridustase.",
+      "Pikad ja keerulised bürokraatlikud protsessid.",
+      "Teadmiste ja informatsiooni kättesaadavuse piiramine."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Selgita ettevõtlusmiljöö mõistet.",
+    "options": [
+      "Ettevõtte sisekorraeeskirjad ja füüsiline töökeskkond.",
+      "See on sotsiaal-kultuuriline keskkond (normid, väärtused), siid soodustab uute ideede teket ja elluviimist piirkonnas.",
+      "Ainult kohaliku omavalitsuse arengukava paberil.",
+      "Maksusüsteem, mis soodustab ainult suuri investoreid."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on Kondratjevi lained ning milliste tehnoloogiliste muutustega need seostuvad?",
+    "options": [
+      "Lühiajalised muutused tarbijate eelistustes ühe hooaja jooksul.",
+      "Valitsuse vahetumisega seotud nelja-aastased tsüklid.",
+      "Need on pikad majandustsüklid; näiteks aurumasin, elekter, keemiatööstus ja IT.",
+      "Ainult meretranspordis esinevad sesoonsed kõikumised."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mida tähendab toote elutsükli teooria?",
+    "options": [
+      "See kirjeldab toote säilivusaega kaupluse riiulil.",
+      "Toote valmistamiseks kuluvat aega tehase liinil.",
+      "Ainult toote remondi ja hooldusperioodi pikkust.",
+      "See kirjeldab toote etappe: sisenemine, kasv, küpsus ja langus."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Too välja klastrite põhijooned Porteri järgi.",
+    "options": [
+      "Geograafiline lähedus, ühine valdkond ning üheaegne koostöö ja konkurents.",
+      "Täielik isolatsioon ja kaugenemine teistest ettevõtetest.",
+      "Riiklikult juhitud sundühendused ilma konkurentsita.",
+      "Ainult virtuaalne koostöö ilma füüsilise läheduseta."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Selgita Porteri rombi nelja komponenti.",
+    "options": [
+      "Maa, töö, kapital ja ettevõtlikkus algkujul.",
+      "Teguritingimused, nõudlustingimused, seotud ja toetavad harud, ettevõtte strateegia ja konkurents.",
+      "Poliitika, majandus, sotsiaalsia ja tehnoloogia.",
+      "Sisenemine, kasv, küpsus ja langus turul."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis iseloomustab klastrite elutsüklit?",
+    "options": [
+      "Pidev kasv ilma ühegi languseta igavesti.",
+      "Ainult algusfaas ja sellele järgnev kohene hääbumine.",
+      "Faasid: olemasolu, avastav laienemine, ärakasutav laienemine, ammendumine, lukustumine ja renessanss.",
+      "Staatiline olek, mis ei muutu aastakümnete jooksul."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis on rajasõltuvus ja kuidas see mõjutab piirkondlikku arengut?",
+    "options": [
+      "See tähendab piirkonna sõltuvust ainult uutest raudteedest.",
+      "Võimalus valida iga päev uus arengusuund ilma minevikuta.",
+      "Regiooni täielik iseseisvus kõigist varasematest otsustest.",
+      "See on minevikuotsuste mõju tulevikule; vanad tööstusstruktuurid võivad takistada uute arengute teket."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Selgita Schumpeteri innovatsioonimõistet ja „loomingulise hävingu“ ideed.",
+    "options": [
+      "Innovatsioon on protsess, kus uued tehnoloogiad asendavad vanad, tekitades majanduse evolutsiooni ja kasvu.",
+      "Ettevõtte tahtlik hävitamine konkurendi poolt turul.",
+      "Vana tehnoloogia säilitamine ja kaitsmine riigi poolt.",
+      "Loomingulisus majanduses, mis ei too kaasa mingeid muudatusi."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kuidas erinevad institutsionaalsed ja tehnoloogilised muutused mõjutavad majanduse evolutsiooni?",
+    "options": [
+      "Tehnoloogia ja institutsioonid on täpselt samad asjad.",
+      "Tehnoloogia pakub uusi võimalusi, kuid institutsioonid (rutiinid/reeglid) määravad, kui kiiresti need omaks võetakse.",
+      "Institutsioonid muutuvad alati kiiremini kui tehnoloogia.",
+      "Muutused toimuvad ainult poliitilisel, mitte majanduslikul tasandil."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mis on riiklik innovatsioonisüsteem (NIS) ja millised komponendid seda moodustavad?",
+    "options": [
+      "Ainult riigieelarveline toetus ühele kindlale teadusüksusele.",
+      "Riiklik andmebaas, kuhu koondatakse kõik töötajad.",
+      "Inimressursside vood, institutsionaalsed seosed, klastrid ja tehnoloogia difusioon riiklikul tasemel.",
+      "Valitsuse määrus, mis kohustab ettevõtteid innovatsiooniks."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Kuidas toimib regionaalne innovatsioonisüsteem (RIS)?",
+    "options": [
+      "See on suletud süsteem, kus teadmised on salastatud.",
+      "RIS toimib ainult läbi otsese riikliku plaanimajanduse.",
+      "See on tehniline süsteem, mis asendab inimestevahelise suhtluse.",
+      "See on sotsiaalne süsteem, kus teadmiste loojad (ülikoolid) ja kasutajad (ettevõtted) interakteeruvad ja õpivad."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks ei ole Silicon Valley mudel teistesse piirkondadesse lihtsalt kopeeritav?",
+    "options": [
+      "See tugineb unikaalsele kultuurilisele ja institutsionaalsele struktuurile, mida ei saa kunstlikult luua.",
+      "Sest Silicon Valley on patenditud kaubamärk ja kopeerimine on keelatud.",
+      "Puuduvad piisavad rahalised vahendid mujal maailmas.",
+      "Silicon Valley mudel on tegelikult ebaefektiivne ja seda ei peakski kopeerima."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Millised probleemid iseloomustavad erinevat tüüpi regioone?",
+    "options": [
+      "Keskuses on liiga vähe inimesi ja ääremaal on liigne konkurents.",
+      "Liigne fragmenteeritus; Nõrgad institutsioonid ja väike turg; Takistav rajasõltuvus.",
+      "Kõik regioonid on ühtlaselt arenenud ja muresid ei ole.",
+      "Probleemid on ainult rahalised, mitte struktuursed."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Mida tähendab Bathelt’i „local buzz“ ning miks see on innovatsioonis oluline?",
+    "options": [
+      "See tähendab liigset müra ja saastatust tööstuspiirkonnas.",
+      "See on tasuline info, mida müüakse klastri sees.",
+      "See on spontaanne ja mitteametlik infovahetus piirkonnas, mis tekib inimeste vahetul kohtumisel.",
+      "Kohaliku omavalitsuse ametlik teadaanne uutest reeglitest."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Millised geograafilised ja sotsiaalsed tegurid soodustavad teadmiste levikut?",
+    "options": [
+      "Suured vahemaad, erinevad keeled ja madal usaldus.",
+      "Rangelt hierarhilised suhted ja teabe salastamine.",
+      "Isolatsioon ja teistest regioonidest eraldumine.",
+      "Ruumiline lähedus, ühine sotsiaalne ja kultuuriruum ning kõrge usaldus."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks toimub õppimine eelkõige inimeste, mitte institutsioonide tasandil?",
+    "options": [
+      "Sest praktiline teadmine (väärtuslikum osa) on \"kleepuv\" ja kandub edasi vahetu suhtluse, mitte pelgalt dokumentide kaudu.",
+      "Sest institutsioonid ei ole võimelised informatsiooni vastu võtma.",
+      "Inimesed on odavamad kui institutsionaalsed koolitused.",
+      "See on riigi poliitika, et institutsioonid ei tohiks õppida."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on nutikas spetsialiseerumine ning miks rõhutatakse eristumist?",
+    "options": [
+      "Keskendumine teiste piirkondade täpsele kopeerimisele edu nimel.",
+      "See on keskendumine oma unikaalsetele kohalikele tugevustele, et vältida asjatut kopeerimist ja konkurentsi.",
+      "Kõigi majandusharude üheaegne ja võrdne arendamine ühes piirkonnas.",
+      "Spetsialiseerumine ainult madalate kuludega tootmisele."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Selgita „entrepreneurial discovery“ protsessi.",
+    "options": [
+      "Uue töötaja avastamine läbi tööintervjuu protsessi.",
+      "Riiklik kontroll, et leida maksupettusi ettevõtetes.",
+      "See on protsess, kus ettevõtjad ja eksperdid avastavad uusi võimalusi ja nišše, mida piirkond saaks edukalt arendada.",
+      "Tarnijate avastamine läbi maailmaturu uuringute."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Millised elemendid moodustavad ettevõtluse ökosüsteemi?",
+    "options": [
+      "Metsad, maavarad ja soodne kliima inimestele.",
+      "Ainult riigikassa, maksuamet ja juriidilised dokumendid.",
+      "Sotsiaalmeedia jälgijad, brändi fännid ja reklaamiagentuurid.",
+      "Kultuur, liidriroll, rahastuse kättesaadavus, inimkapital ja institutsionaalne tugi."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Too välja kõrgkooli kolm põhifunktsiooni.",
+    "options": [
+      "Õppetöö, teadustöö ja tehnoloogia siire, kogukonna ja kultuuri edendamine.",
+      "Üliõpilaste majutamine, diplomite müük ja piletite müük üritustele.",
+      "Tootmine, logistika juhtimine ja jaemüügi korraldamine.",
+      "Ainult riiklik propaganda, järelevalve ja auditeerimine."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Mis on kolmik-, nelik- ja viisikheeliksi mudel?",
+    "options": [
+      "Geenitehnoloogia metoodika, mida kasutatakse laboris.",
+      "Kolmik: Ülikool-ettevõte-riik. Nelik: Lisandub kodanikeühendus. Viisik: Lisandub looduskeskkond [56–58].",
+      "Kolme konkurendi vaheline salajane kartellikokkulepe.",
+      "Spiraalikujuline majanduskasvu prognoosimudel."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks on kõrgkoolide regionaalne paiknemine oluline?",
+    "options": [
+      "See aitab vähendada üürihindu pealinnas.",
+      "See on oluline ainult kohaliku kultuurielu elavdamiseks ilma majanduseta.",
+      "See tagab talendipumba olemasolu piirkonnas ja võimaldab kohalikel ettevõtetel tellida arendustööd.",
+      "See on vajalik vaid riigiasutuste hajutamiseks üle riigi."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Millised on regionaalpoliitika peamised eesmärgid Eestis?",
+    "options": [
+      "Kõigi elanike kolimine Harjumaale ja Tallinna.",
+      "Maksude kogumise ühtlustamine ja tsentraliseerimine.",
+      "Ainult uute maanteede ja sildade ehitamine äärealadel.",
+      "Tagada kättesaadav töö, teenused ja hea elukeskkond kõikjal Eestis."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Mis probleemid ilmnesid struktuurivahendite 2014–2020 perioodi hindamisel?",
+    "options": [
+      "Investeeringud koondusid suurkeskustesse ja piirkondlikud erinevused pigem süvenesid.",
+      "Eestis ei tehtud sellel perioodil ühtegi investeeringut.",
+      "Kogu raha kulus ainult Tallinna linna arendamiseks.",
+      "Raha jagati võrdselt kõigi valdade vahel ilma analüüsita."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Kuidas võiks RISi tõhustada maakondlikul tasandil?",
+    "options": [
+      "Kaotada maakondlikud arenduskeskused ja tsentraliseerida juhtimine.",
+      "Tugevdada maakondlikke kompetentsikeskusi ja liita KOV-ide ja ülikoolide tiimid.",
+      "Keelata koostöö ülikoolide ja kohalike ettevõtete vahel.",
+      "Vähendada kohalike omavalitsuste tulubaasi ja otsustusõigust."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Miks muutub regionaalpoliitika üha rohkem regionaalseks innovatsioonipoliitikaks?",
+    "options": [
+      "Sest see termin on Euroopa Liidus populaarsem.",
+      "Ettevõtted ei vaja enam teid ja sadamaid, vaid ainult internetti.",
+      "Sest tänapäeva areng põhineb teadmuspõhisel tööhõivel ja innovatsioonivõimekusel, mitte ainult füüsilisel taristul.",
+      "See on valitseva koalitsiooni ajutine poliitiline otsus."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Mis iseloomustab Eesti ettevõtlusruume ja miks on keskused võtmetähtsusega?",
+    "options": [
+      "Eestis puuduvad tegelikult keskused ja ettevõtlus on hajutatud.",
+      "Keskused on olulised ainult riikliku kontrolli teostamiseks.",
+      "Iseloomulik on täielik detsentraliseeritus ilma keskusteta.",
+      "Keskused on kohad, kus toimub vahetu õppimine ja sumin; neid võrgustikke ei ole võimalik kiirelt nullist luua."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Miks on väikelinnade arendamisel oluline teadmuspõhiste institutsioonide roll?",
+    "options": [
+      "Need toimivad talendipumpadena, mis meelitavad noori jääma ja toetavad kohalikku tööstust arendustööga.",
+      "Need asutused on olulised ainult meelelahutuseks kohalikele.",
+      "Institutsioonide roll on ainult diplomite väljastamine ilma sisuta.",
+      "Need takistavad tegelikult kohaliku ettevõtluse arengut."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Millised on Eesti RISi „tuunimise“ peamised ettepanekud?",
+    "options": [
+      "Vähendada ülikoolide rolli ja koondada kõik arenduskeskused Tallinna.",
+      "Anda ettevõtluse arendamine KOV-idele koos tulubaasiga, paigutada riigiasutusi Tallinnast välja ja motiveerida ülikoole regioonides osalema.",
+      "Lõpetada igasugune toetuste jagamine väljaspool pealinna regiooni.",
+      "Suurendada makse neile ettevõtetele, kes asuvad väljaspool keskusi."
+    ],
+    "correct": 1
+  }
+]
