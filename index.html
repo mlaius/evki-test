@@ -42,10 +42,6 @@
     .incorrect{ background-color: #f7c5c5; } /* helepunane */
     #result { font-weight: bold; margin-top: 12px; }
     #error  { color: #b00020; margin-top: 12px; }
-
-    /* TAIMER & PROTSENT: stiilid */
-    #timer { margin-top: 8px; color: #333; }
-    #extra { margin-top: 6px; color: #333; }
   </style>
 </head>
 <body>
@@ -59,10 +55,6 @@
   <button id="newBtn">Tee uus test</button>
 
   <p id="result"></p>
-  <!-- TAIMER & PROTSENT: jooksev taimer + lisainfo -->
-  <p id="timer" aria-live="polite"></p>
-  <p id="extra"></p>
-
   <p id="error"></p>
 
   <!-- INLINE skript -->
@@ -71,10 +63,6 @@
 
     let allQuestions = [];
     let quizQuestions = [];
-
-    // TAIMER & PROTSENT: ajamõõtmise muutujad
-    let quizStartTs = null;
-    let timerInterval = null;
 
     // Initsialiseeri kui DOM on valmis
     window.addEventListener('DOMContentLoaded', async () => {
@@ -145,12 +133,6 @@
       renderQuiz();
       const resultEl = document.getElementById('result');
       if (resultEl) resultEl.textContent = '';
-
-      // TAIMER & PROTSENT: käivita stopper
-      startTimer();
-
-      // Tühjenda lisainfo plokid
-      setText('extra', '');
       console.log('EVKI app: startQuiz OK, kuvatakse', quizQuestions.length, 'küsimust');
     }
 
@@ -218,16 +200,13 @@
         }
       });
 
-      // TAIMER & PROTSENT: peata stopper ja kuva aeg + protsent
-      const elapsedMs = stopTimer(); // ms
+      // Kuvame tulemuse koos protsendiga (ilma ajata)
       const percent = quizQuestions.length > 0
         ? Math.round((score / quizQuestions.length) * 100)
         : 0;
 
       document.getElementById('result').innerText =
         'Tulemus: ' + score + ' / ' + quizQuestions.length + ' (' + percent + '%)';
-
-      setText('extra', 'Aeg: ' + formatDuration(elapsedMs));
     }
 
     function newTest() {
@@ -251,43 +230,6 @@
         .replaceAll('>', '&gt;')
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#39;');
-    }
-
-    // === TAIMER & PROTSENT: utiliidid ===
-    function startTimer() {
-      quizStartTs = Date.now();
-      // puhasta varasemad intervallid
-      if (timerInterval) clearInterval(timerInterval);
-      // uuenda kord sekundis jooksvat taimerit
-      timerInterval = setInterval(() => {
-        const ms = Date.now() - quizStartTs;
-        setText('timer', 'Aeg: ' + formatDuration(ms));
-      }, 1000);
-      // kohe esimene väärtus ka
-      setText('timer', 'Aeg: ' + formatDuration(0));
-    }
-
-    function stopTimer() {
-      if (timerInterval) clearInterval(timerInterval);
-      timerInterval = null;
-      const elapsed = quizStartTs ? (Date.now() - quizStartTs) : 0;
-      return elapsed;
-    }
-
-    function formatDuration(ms) {
-      const totalSeconds = Math.floor(ms / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-      const hh = hours > 0 ? String(hours).padStart(2, '0') + ':' : '';
-      const mm = String(minutes).padStart(2, '0');
-      const ss = String(seconds).padStart(2, '0');
-      return hh + mm + ':' + ss; // näiteks 05:32 või 01:05:32
-    }
-
-    function setText(id, text) {
-      const el = document.getElementById(id);
-      if (el) el.textContent = text;
     }
 
     window.submitQuiz = submitQuiz;
