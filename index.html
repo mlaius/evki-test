@@ -8,7 +8,13 @@
     h1 { margin-top: 0; }
     .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
     .question p { margin: 0 0 8px 0; font-weight: bold; }
-    label { display: inline-block; margin: 4px 0; padding: 2px 4px; border-radius: 4px; }
+    label { 
+      display: inline-block; 
+      margin: 4px 0; 
+      padding: 2px 4px; 
+      border-radius: 4px;
+      font-size: 16px;           /* Ühtlane fondisuurus vastuste jaoks */
+    }
     button { padding: 10px 20px; font-size: 16px; margin-right: 8px; cursor: pointer; }
     .correct  { background-color: #c8f7c5; } /* heleroheline */
     .incorrect{ background-color: #f7c5c5; } /* helepunane */
@@ -29,7 +35,7 @@
   <p id="result"></p>
   <p id="error"></p>
 
-  <!-- INLINE skript: ei kasuta üldse eraldi script.js faili -->
+  <!-- INLINE skript -->
   <script>
     console.log('EVKI app: inline script käivitub');
 
@@ -111,18 +117,35 @@
       console.log('EVKI app: startQuiz OK, kuvatakse', quizQuestions.length, 'küsimust');
     }
 
+    // === LISANDUS 1: vastusevariantide juhuslik järjestus ===
+    function shuffleOptionsWithCorrectFlag(q) {
+      // Loome { text, isCorrect } paarid ja segame
+      const pairs = q.options.map((opt, idx) => ({
+        text: opt,
+        isCorrect: idx === q.correct
+      }));
+      const shuffled = shuffleArray(pairs);
+      const correctShuffled = shuffled.findIndex(p => p.isCorrect);
+      return { shuffled, correctShuffled };
+    }
+
     function renderQuiz() {
       const quizDiv = document.getElementById('quiz');
       quizDiv.innerHTML = '';
 
       quizQuestions.forEach((q, index) => {
+        // Segame vastused ja salvestame õige indeksi shuffeldatud järjestuses
+        const { shuffled, correctShuffled } = shuffleOptionsWithCorrectFlag(q);
+        q._shuffledOptions = shuffled;        // [{ text, isCorrect }, ...] (ainult sessiooni sees)
+        q._correctShuffled = correctShuffled; // number
+
         let html = '<div class="question">';
         html += '<p><strong>' + (index + 1) + '. ' + escapeHtml(q.question) + '</strong></p>';
-        q.options.forEach((option, i) => {
+        shuffled.forEach((pair, i) => {
           html += `
             <label>
               <input type="radio" name="q${index}" value="${i}">
-              ${escapeHtml(option)}
+              ${escapeHtml(pair.text)}
             </label><br>`;
         });
         html += '</div>';
@@ -140,17 +163,22 @@
         // Lukusta valikud pärast kontrolli
         optionInputs.forEach(inp => { inp.disabled = true; });
 
+        // Kui on olemas shuffeldatud õige indeks, kasuta seda, muidu lange tagasi originaalile
+        const correctIndex = (typeof q._correctShuffled === 'number')
+          ? q._correctShuffled
+          : q.correct;
+
         // Õige vastus roheliseks
-        const correctInput = document.querySelector('input[name="q' + index + '"][value="' + q.correct + '"]');
+        const correctInput = document.querySelector('input[name="q' + index + '"][value="' + correctIndex + '"]');
         if (correctInput) {
           const correctLabel = correctInput.closest('label');
           if (correctLabel) correctLabel.classList.add('correct');
         }
 
-        // Vale valik punaseks
+        // Vale valik punaseks ja skoor
         if (selected) {
           const selectedIndex = Number(selected.value);
-          if (selectedIndex === q.correct) {
+          if (selectedIndex === correctIndex) {
             score++;
           } else {
             const wrongLabel = selected.closest('label');
