@@ -2,26 +2,39 @@
 <html lang="et">
 <head>
   <meta charset="UTF-8" />
-  <!-- LISATUD: mobiili korrektne mõõduskaala -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Rangem mobiili viewport, et Messenger ei zoomiks ega skaleeriks teksti -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>EVKI harjutustest</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; line-height: 1.5; }
+    /* Globaalne normaliseerimine: ära skaleeri teksti automaatselt */
+    html, body {
+      -webkit-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+      line-height: 1.5;
+      font-size: 16px; /* base 16px, aitab vältida iOS autofookuse zoomi */
+    }
     h1 { margin-top: 0; }
     .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
     .question p { margin: 0 0 8px 0; font-weight: bold; }
 
-    /* Ühtlane fondisuurus vastuste jaoks + keelame automaatse skaleerimise mobiilis */
-    label { 
-      display: inline-block; 
-      margin: 4px 0; 
-      padding: 2px 4px; 
+    /* Ühtlane fondisuurus vastuste jaoks + keelame skaleerimise kindlalt labelitel */
+    label {
+      display: inline-block;
+      margin: 4px 0;
+      padding: 2px 4px;
       border-radius: 4px;
-      font-size: 16px;                 /* ühtlane suurus */
-      line-height: 1.4;                 /* stabiilne ridade kõrgus */
-      -webkit-text-size-adjust: 100%;   /* iOS Safari: hoia suurus stabiilsena */
-      text-size-adjust: 100%;           /* teised brauserid */
-      word-break: break-word;           /* vältida laiuse ületamist pikemate sõnadega */
+      font-size: 16px !important;          /* ühtlane suurus */
+      line-height: 1.4;                     /* stabiilne ridade kõrgus */
+      -webkit-text-size-adjust: none !important; /* keelame iOS WebView skaleerimise labelitel */
+      text-size-adjust: none !important;         /* keelame teistes WebView'des */
+      word-break: break-word;               /* kui on pikad variandid */
     }
 
     button { padding: 10px 20px; font-size: 16px; margin-right: 8px; cursor: pointer; }
@@ -29,6 +42,10 @@
     .incorrect{ background-color: #f7c5c5; } /* helepunane */
     #result { font-weight: bold; margin-top: 12px; }
     #error  { color: #b00020; margin-top: 12px; }
+
+    /* TAIMER & PROTSENT: stiilid */
+    #timer { margin-top: 8px; color: #333; }
+    #extra { margin-top: 6px; color: #333; }
   </style>
 </head>
 <body>
@@ -42,6 +59,10 @@
   <button id="newBtn">Tee uus test</button>
 
   <p id="result"></p>
+  <!-- TAIMER & PROTSENT: jooksev taimer + lisainfo -->
+  <p id="timer" aria-live="polite"></p>
+  <p id="extra"></p>
+
   <p id="error"></p>
 
   <!-- INLINE skript -->
@@ -51,10 +72,13 @@
     let allQuestions = [];
     let quizQuestions = [];
 
+    // TAIMER & PROTSENT: ajamõõtmise muutujad
+    let quizStartTs = null;
+    let timerInterval = null;
+
     // Initsialiseeri kui DOM on valmis
     window.addEventListener('DOMContentLoaded', async () => {
       console.log('EVKI app: DOMContentLoaded');
-      // Lisa nupuvajutused JS-ist (väldime HTML onclick)
       document.getElementById('checkBtn').addEventListener('click', submitQuiz);
       document.getElementById('newBtn').addEventListener('click', newTest);
 
@@ -66,13 +90,12 @@
       const errEl = document.getElementById('error');
       errEl.textContent = '';
       try {
-        // Cache-busting, et GitHub Pages ei annaks vana faili
         const res = await fetch('./questions.json?v=' + Date.now());
         console.log('EVKI app: fetch questions.json status', res.status);
         if (!res.ok) throw new Error('HTTP ' + res.status);
 
         const text = await res.text();
-        const data = JSON.parse(text); // annab vea kui JSON on katki
+        const data = JSON.parse(text);
         if (!Array.isArray(data) || data.length === 0) {
           throw new Error('Tyhi või vale formaadis JSON');
         }
@@ -81,7 +104,6 @@
       } catch (e) {
         console.warn('EVKI app: JSON load/parse error:', e);
         errEl.textContent = 'Hoiatus: questions.json ei laadinud. Kasutan näidisküsimusi. (See on OK testimiseks.)';
-        // Fallback – et leht kindlasti toimiks (3 näidisküsimust)
         allQuestions = [
           {
             question: 'Mis on ettevõtluskeskkond?',
@@ -123,6 +145,12 @@
       renderQuiz();
       const resultEl = document.getElementById('result');
       if (resultEl) resultEl.textContent = '';
+
+      // TAIMER & PROTSENT: käivita stopper
+      startTimer();
+
+      // Tühjenda lisainfo plokid
+      setText('extra', '');
       console.log('EVKI app: startQuiz OK, kuvatakse', quizQuestions.length, 'küsimust');
     }
 
@@ -143,8 +171,8 @@
 
       quizQuestions.forEach((q, index) => {
         const { shuffled, correctShuffled } = shuffleOptionsWithCorrectFlag(q);
-        q._shuffledOptions = shuffled;        // [{ text, isCorrect }, ...]
-        q._correctShuffled = correctShuffled; // number
+        q._shuffledOptions = shuffled;
+        q._correctShuffled = correctShuffled;
 
         let html = '<div class="question">';
         html += '<p><strong>' + (index + 1) + '. ' + escapeHtml(q.question) + '</strong></p>';
@@ -167,7 +195,6 @@
         const selected = document.querySelector('input[name="q' + index + '"]:checked');
         const optionInputs = document.querySelectorAll('input[name="q' + index + '"]');
 
-        // Lukusta valikud pärast kontrolli
         optionInputs.forEach(inp => { inp.disabled = true; });
 
         const correctIndex = (typeof q._correctShuffled === 'number')
@@ -191,8 +218,16 @@
         }
       });
 
+      // TAIMER & PROTSENT: peata stopper ja kuva aeg + protsent
+      const elapsedMs = stopTimer(); // ms
+      const percent = quizQuestions.length > 0
+        ? Math.round((score / quizQuestions.length) * 100)
+        : 0;
+
       document.getElementById('result').innerText =
-        'Tulemus: ' + score + ' / ' + quizQuestions.length;
+        'Tulemus: ' + score + ' / ' + quizQuestions.length + ' (' + percent + '%)';
+
+      setText('extra', 'Aeg: ' + formatDuration(elapsedMs));
     }
 
     function newTest() {
@@ -216,6 +251,43 @@
         .replaceAll('>', '&gt;')
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#39;');
+    }
+
+    // === TAIMER & PROTSENT: utiliidid ===
+    function startTimer() {
+      quizStartTs = Date.now();
+      // puhasta varasemad intervallid
+      if (timerInterval) clearInterval(timerInterval);
+      // uuenda kord sekundis jooksvat taimerit
+      timerInterval = setInterval(() => {
+        const ms = Date.now() - quizStartTs;
+        setText('timer', 'Aeg: ' + formatDuration(ms));
+      }, 1000);
+      // kohe esimene väärtus ka
+      setText('timer', 'Aeg: ' + formatDuration(0));
+    }
+
+    function stopTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = null;
+      const elapsed = quizStartTs ? (Date.now() - quizStartTs) : 0;
+      return elapsed;
+    }
+
+    function formatDuration(ms) {
+      const totalSeconds = Math.floor(ms / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const hh = hours > 0 ? String(hours).padStart(2, '0') + ':' : '';
+      const mm = String(minutes).padStart(2, '0');
+      const ss = String(seconds).padStart(2, '0');
+      return hh + mm + ':' + ss; // näiteks 05:32 või 01:05:32
+    }
+
+    function setText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
     }
 
     window.submitQuiz = submitQuiz;
